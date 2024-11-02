@@ -1,6 +1,10 @@
 import math
 
 def matrixmult(A,B):
+    """
+    This function takes an input of two matricies and multiplies them by their individual indexes, and outputs the product as a new matrix. 
+
+    """
     
     arow = len(A)
     brow = len(B)
@@ -46,3 +50,27 @@ try:
 except ValueError as inst:
     print("Caught ValueError")
     print("You have thrown the right type of error")
+
+A=[[1, 7, 1, 7, 7, 3, 4, 3, 2, 9],
+       [4, 5, 1, 4, 8, 1, 1, 2, 2, 7],
+       [6, 8, 3, 6, 1, 7, 6, 8, 6, 1],
+       [6, 2, 4, 1, 3, 7, 5, 2, 1, 4],
+       [2, 8, 7, 0, 0, 5, 0, 5, 2, 4]]
+B=[[6, 1, 1],
+       [1, 4, 9],
+       [8, 5, 4],
+       [5, 1, 3],
+       [1, 8, 3],
+       [7, 1, 7],
+       [3, 7, 5],
+       [4, 8, 2],
+       [4, 8, 3],
+       [0, 4, 5]]
+try:
+    C = matrixmult(B, A)
+except ValueError as inst:
+    print("Caught ValueError")
+    print("You have thrown the right type of error")
+
+if matrixmult.__doc__ is not None:
+    print("Hooray! You have a docstring!") 
