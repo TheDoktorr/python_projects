@@ -24,5 +24,18 @@ class Particle:
     def update(self, deltaT):
         self.deltaT = deltaT
         
+        # define start variables 
+        time = 0 
+        r0 = self.position
+        v0 = self.velocity
+        a0 = self.acceleration
+
+
+        self.position = r0 + v0 * self.deltaT
+        self.velocity = v0  + a0 * self.deltaT
+
+        return self.position, self.velocity
+    
+
 
             
