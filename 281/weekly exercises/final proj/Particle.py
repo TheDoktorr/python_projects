@@ -1,5 +1,7 @@
 import numpy as np
 
+
+
 class Particle:
     def __init__(
         self,
@@ -29,14 +31,25 @@ class Particle:
         # define start variables 
         self.position = self.position + self.velocity * self.deltaT
         self.velocity = self.velocity  + self.acceleration * self.deltaT
-        # if first particle =x second particle 
+
         return self.position, self.velocity
     
     def updateGravitationalAcceleration(self, body):
-        # define Gravitational constant
-  
-        gravaccel = - (self.G * body.mass) * (body.position - self.position) / (np.linalg.norm(body.position - self.position ))**3
+        
+        # handle divide by 0 errors:
+        distance = np.linalg.norm(self.position - body.position)
+        if distance == 0:
+            return np.array([0.0, 0.0, 0.0])
+       
+
+        gravaccel = - (self.G * body.mass) * (self.position - body.position) / (distance ** 3)
+        self.acceleration = gravaccel
         return gravaccel
     
+    def kineticEnergy(self):
+        Kvelocity= np.linalg.norm(self.velocity)
 
+        Kenergy =  0.5 * self.mass * Kvelocity**2
 
+        return Kenergy
+    
