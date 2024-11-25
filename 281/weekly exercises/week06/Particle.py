@@ -29,19 +29,14 @@ class Particle:
         # define start variables 
         self.position = self.position + self.velocity * self.deltaT
         self.velocity = self.velocity  + self.acceleration * self.deltaT
-
+        # if first particle =x second particle 
         return self.position, self.velocity
     
     def updateGravitationalAcceleration(self, body):
         # define Gravitational constant
   
-        
-
         gravaccel = - (self.G * body.mass) * (body.position - self.position) / (np.linalg.norm(body.position - self.position ))**3
         return gravaccel
     
 
 
-# test code
-
-            

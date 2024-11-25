@@ -1,6 +1,7 @@
 import numpy as np
 from Particle import Particle
 
+
 earthMass = 5.97237e24     # https://en.wikipedia.org/wiki/Earth
 earthRadius = 63710 * 1e3  # https://en.wikipedia.org/wiki/Earth
 Earth = Particle(
@@ -20,8 +21,25 @@ Satellite = Particle(
     mass=100.
 )
 
+iterations = 2000
+time = 0 
+deltaT = 6
 
-
+while time <= ( deltaT * iterations):
+    for particle in [Earth, Satellite]:
+        if particle == particle:
+            continue
+        else:
+            particle.updateGravitationalAcceleration(particle)
+            particle.update(deltaT)
+            time += deltaT
+"""
+for i in range(2000):
+    Satellite.updateGravitationalAcceleration(Earth)
+    Satellite.update(6)
+    Earth.update(6)
+    time += 6
+"""
 
 from Simulation import *
 print("The Earth and Satellite's locations after {0} seconds are:".format((2000*6)))
@@ -29,19 +47,6 @@ for particle in [Earth, Satellite]:
     print("  Particle: {}".format(particle.name))
     print("    Mass: {0:.3e}, ".format(particle.mass))
     for attribute in ["position", "velocity", "acceleration"]:
-        print("    {}: {}".format(attribute, particle.__getattribute__(attribute) + 0.0))  # add 0.0 to avoid negative zeros!
-
-
-iterations = 2000
-time = 0 
-deltaT = 6 
-while time <= ( deltaT * iterations):
-    for particle in [Earth, Satellite]:
-        particle.updateGravitationalAcceleration(particle)
-        particle.update(deltaT)
-        time += deltaT
-
-        # if first particle =x second particle 
-        
+        print("    {}: {}".format(attribute, particle.__getattribute__(attribute) + 0.0))  # add 0.0 to avoid negative zeros!   
         
 
