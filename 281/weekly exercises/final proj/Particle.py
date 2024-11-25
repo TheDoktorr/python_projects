@@ -25,15 +25,36 @@ class Particle:
         self.name, self.mass,self.position, self.velocity, self.acceleration
     )
 
-    def update(self, deltaT):
+    def updateE(self, deltaT):
+        """
+        Update position and velocity based on the Euler Method
+        takes self.position, velocity, acceleration as passed to it
+        takes deltaT as the time step of the update
+        """
+
         self.deltaT = deltaT
         
-        # define start variables 
         self.position = self.position + self.velocity * self.deltaT
         self.velocity = self.velocity  + self.acceleration * self.deltaT
 
         return self.position, self.velocity
     
+    def updateEC(self, deltaT):
+        """
+        Alternative method for updating based on Euler-Cromer method 
+        
+        """
+        self.deltaT = deltaT 
+        self.velocity = self.velocity + self.acceleration * deltaT
+        self.position = self.position + self.velocity * deltaT
+
+        return self.position, self.velocity
+
+    def updateER(self, deltaT):
+        """
+        Place holder for Euler-richardson        
+        """
+
     def updateGravitationalAcceleration(self, body):
         
         # handle divide by 0 errors:
@@ -46,6 +67,11 @@ class Particle:
         self.acceleration = gravaccel
         return gravaccel
     
+    def updateGravAccel(self, bodies):
+        
+
+        return gravaccel
+
     def kineticEnergy(self):
         Kvelocity= np.linalg.norm(self.velocity)
 
