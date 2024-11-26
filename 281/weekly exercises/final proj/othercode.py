@@ -94,3 +94,18 @@ print("Satellite KE: {:.5e}".format(DataIn[0][2].kineticEnergy()))
 print("Printing Kinetic Energy of Last Entry")
 print("Earth KE: {:.5e}".format(DataIn[-1][1].kineticEnergy()))
 print("Satellite KE: {:.5e}".format(DataIn[-1][2].kineticEnergy()))
+
+
+
+# original iteration loop for Euler method
+for i in range(iterations):
+        Satellite.updateGravitationalAcceleration(Earth)
+        Earth.updateGravitationalAcceleration(Satellite)
+        Satellite.updateE(deltaT)
+        Earth.updateE(deltaT)
+        time += deltaT
+
+        if i % 100 == 0:
+                Data.append([time, copy.deepcopy(Earth), copy.deepcopy(Satellite)])
+
+# np.save(r"281\weekly exercises\final proj\TwoBodyTest.npy", Data, allow_pickle=True)  

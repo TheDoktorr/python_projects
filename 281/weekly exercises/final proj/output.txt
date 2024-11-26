@@ -1,0 +1,22 @@
+The Earth and Satellite's locations after 12000 seconds using:
+  Particle: Earth
+    Mass: 5.972e+24, 
+    position: [4.82818964e-17 3.88875786e-18 0.00000000e+00]
+    velocity: [8.01183291e-21 9.71266602e-22 0.00000000e+00]
+    acceleration: [6.54637548e-25 1.61090392e-25 0.00000000e+00]
+  Particle: Satellite
+    Mass: 1.000e+02, 
+    position: [96612426.50526263 23786338.06955715        0.        ]
+    velocity: [-478.49630542 1943.54145462    0.        ]
+    acceleration: [-0.03909738 -0.00962091  0.        ]
+The Earth and Satellite's locations after 12000 seconds using:
+  Particle: Earth
+    Mass: 5.972e+24, 
+    position: [1.90420846e-16 3.08794758e-17 0.00000000e+00]
+    velocity: [1.55591288e-20 3.82972338e-21 0.00000000e+00]
+    acceleration: [5.97157745e-25 3.12929232e-25 0.00000000e+00]
+  Particle: Satellite
+    Mass: 1.000e+02, 
+    position: [88123362.50552778 46192941.606791          0.        ]
+    velocity: [-929.2487434  1772.82383974    0.        ]
+    acceleration: [-0.03566447 -0.01868929  0.        ]
