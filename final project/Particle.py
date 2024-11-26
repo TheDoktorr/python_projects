@@ -73,8 +73,6 @@ class Particle:
 
         self = i
         bodies = j
-
-
         """
         total_gravaccel = np.array([0.0, 0.0, 0.0])
         for body in bodies:
@@ -82,15 +80,14 @@ class Particle:
                 
                 distance = np.linalg.norm(self.position - body.position)
                 if distance < 1e-25:
-                    distance += 1e-5
+                    distance += 1e-10
                 
                 gravaccel = - (self.G * body.mass) * (self.position - body.position) / (distance **3)
                 total_gravaccel += gravaccel
         
 
-        
         self.acceleration = total_gravaccel
-        return total_gravaccel
+        
     
 
     def kineticEnergy(self):

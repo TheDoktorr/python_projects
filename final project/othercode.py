@@ -109,3 +109,25 @@ for i in range(iterations):
                 Data.append([time, copy.deepcopy(Earth), copy.deepcopy(Satellite)])
 
 # np.save(r"281\weekly exercises\final proj\TwoBodyTest.npy", Data, allow_pickle=True)  
+"""
+   # original iteration loop for Euler method
+    for i in range(iterations):
+
+            Satellite.updateGravitationalAcceleration(Earth)
+            Earth.updateGravitationalAcceleration(Satellite)
+            Satellite.updateE(deltaT)
+            Earth.updateE(deltaT)
+            time += deltaT
+
+            if i % 100 == 0:
+                   Data.append([time, copy.deepcopy(Earth), copy.deepcopy(Satellite)])
+
+    # np.save(r"281\weekly exercises\final proj\TwoBodyTest.npy", Data, allow_pickle=True)  
+    
+    print("The Earth and Satellite's locations after {0} seconds using:".format((2000*6)), file=f)
+    for particle in [Earth, Satellite]:
+        print("  Particle: {}".format(particle.name), file=f)
+        print("    Mass: {0:.3e}, ".format(particle.mass), file=f)
+        for attribute in ["position", "velocity", "acceleration"]:
+            print("    {}: {}".format(attribute, particle.__getattribute__(attribute) + 0.0), file=f)  # add 0.0 to avoid negative zeros!
+"""
