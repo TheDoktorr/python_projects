@@ -73,9 +73,9 @@ def coord_conv(body):
 
 
 # earth mass
-Earth_m = (constants.GM_earth / G).value
+# Earth_m = (constants.GM_earth / G).value
 # sun mass (in kg)
-Sun_m = (constants.GM_sun / G).value
+# Sun_m = (constants.GM_sun / G).value
 """
 Earth = Particle(
     position=np.array(coord_conv("earth")[0]),
@@ -108,30 +108,35 @@ def LowerCase(Upper):
 # body_input = input()
 
 
+GM_constants = {
+    "sun": constants.GM_sun,
+    "earth": constants.GM_earth,
+
+}
+
+def massFunc(body_input):
+    # dynamically building the variable   
+    if body_input in GM_constants:
+        GM_input = GM_constants[body_input]
+        return (GM_input / G).value
+    else:
+        raise ValueError("No mass found for that body")
+
+
 def ClassMaker(body_input):
     body_input_l = LowerCase(body_input) 
     body_input_U =UpperCase(body_input)
-
-    mass = (constants.GM_sun / G).value
-
-    def massFunc(body_input):
-        
-        
-        return
 
     body = Particle(position=np.array(coord_conv(body_input_l)[0]), 
                     velocity=np.array(coord_conv(body_input_l)[1]), 
                     acceleration=np.array([0, 0, 0]),  
                     name=body_input_U,    
-                    mass = body_input_U)
+                    mass = massFunc(body_input_l) )
 
     return body
 
-
 Sun = ClassMaker("Sun")
-
-print(Sun.mass)
-
-#bodies = [Earth, Sun]
+Earth = ClassMaker("Earth")
+bodies = [Sun, Earth]
 
 
