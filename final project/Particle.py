@@ -8,14 +8,14 @@ class Particle:
         position=np.array([0, 0, 0], dtype=float),
         velocity=np.array([0, 0, 0], dtype=float),
         acceleration=np.array([0, -10, 0], dtype=float),
-        name='Ball',
+        name="point particle",
         mass=1.0,
         G = 6.67408E-11
     ):
         self.position = np.copy(position).astype(float)
         self.velocity = np.copy(velocity).astype(float)
         self.acceleration = np.copy(acceleration).astype(float)
-        self.name = np.copy(name)
+        self.name = name
         self.mass = np.copy(mass)
         self.G = G
         

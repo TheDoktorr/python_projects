@@ -109,7 +109,7 @@ for i in range(iterations):
                 Data.append([time, copy.deepcopy(Earth), copy.deepcopy(Satellite)])
 
 # np.save(r"281\weekly exercises\final proj\TwoBodyTest.npy", Data, allow_pickle=True)  
-"""
+
    # original iteration loop for Euler method
     for i in range(iterations):
 
@@ -130,4 +130,22 @@ for i in range(iterations):
         print("    Mass: {0:.3e}, ".format(particle.mass), file=f)
         for attribute in ["position", "velocity", "acceleration"]:
             print("    {}: {}".format(attribute, particle.__getattribute__(attribute) + 0.0), file=f)  # add 0.0 to avoid negative zeros!
-"""
+
+            
+            
+           # Data.append([time, copy.deepcopy(earth), copy.deepcopy(sun)])
+           # print("    {}: {}".format("position", particle.__getattribute__("position") + 0.0), file=f)
+
+
+
+               
+                current_positions = [body.position for body in bodies]  # List of positions at this timestep
+                positions_over_time.append(current_positions) 
+                positions_array = np.array(positions_over_time)  # Convert to NumPy array for easier slicing
+
+                for i, body in enumerate(bodies):  # Loop over all bodies
+                    plt.plot(positions_array[:, i, 0], positions_array[:, i, 1], label=body.name)
+                
+
+# print results
+ # with open(r"final project\output.txt", "w") as f:  
