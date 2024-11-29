@@ -97,7 +97,8 @@ GM_constants = {
     "mars": constants.GM_mars,
     "jupiter": constants.GM_jupiter,
     "saturn": constants.GM_saturn,
-    "uranus": constants.GM_uranus
+    "uranus": constants.GM_uranus,
+    "neptune": constants.GM_neptune
 
 
 }

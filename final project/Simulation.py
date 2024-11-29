@@ -6,13 +6,21 @@ from Particle import Particle
 from InitCon import *
 
 
-Sun = ClassMaker("Sun")
-Earth = ClassMaker("Earth")
-Mercury = ClassMaker("Mercury")
-Venus = ClassMaker("Venus")
-bodies = [Sun, Earth, Mercury, Venus]
+# planets = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+planets = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter"]
+bodies = []
 
-iterations = 100000
+for i in range(len(planets)):
+    print(planets[i])
+    body = ClassMaker(planets[i])
+    bodies.append(body)
+    
+
+
+
+
+
+iterations = 1000000
 time = 0 
 deltaT = 500
 
@@ -58,33 +66,23 @@ for i in range(iterations):
 
 
  
-print("The Earth and Satellite's locations after {0} seconds using:".format((2000*6)))
+print("The Earth and Sateforllite's locations after {0} seconds using:".format((2000*6)))
 for particle in  bodies:
     print("  Particle: {}".format(particle.name))
     print("    Mass: {0:.3e}, ".format(particle.mass))
     for attribute in ["position", "velocity", "acceleration"]:
         print("    {}: {}".format(attribute, particle.__getattribute__(attribute) + 0.0))  # add 0.0 to avoid negative zeros!
 
-    
-    Earth_xpos = np.array(xpos["Earth"])  # Convert to a numpy array for easier slicing
-    Earth_ypos = np.array(ypos["Earth"])
-    Sun_xpos = np.array(xpos["Sun"])
-    Sun_ypos = np.array(ypos["Sun"])
-    Mercury_xpos = np.array(xpos["Mercury"])
-    Mercury_ypos = np.array(ypos["Mercury"])
-    Venus_xpos = np.array(xpos["Venus"])
-    Venus_ypos= np.array(ypos["Venus"])
-    
- 
- 
+
+
+
 fig=plt.figure(figsize=(3.5,2.6),dpi=200)
 ax=fig.add_subplot(1,1,1)
 ax.set_xlabel(r'$x$ (m)')
-ax.set_ylabel(r'$y)$ (m)')
-ax.plot(Earth_xpos,Earth_ypos,label="Earth", lw=0.4)
-ax.plot(Sun_xpos, Sun_ypos, label="Sun", lw=0.4)
-ax.plot(Mercury_xpos, Mercury_ypos, label="Mercury", lw=0.4)
-ax.plot(Venus_xpos, Venus_ypos, label="Venus", lw=0.4)
+ax.set_ylabel(r'$y$ (m)')
+
+for name in xpos:
+    ax.plot(xpos[name], ypos[name], label = name, lw=0.4)
 ax.legend()
 fig.tight_layout()
 plt.show()
