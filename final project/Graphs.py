@@ -21,7 +21,29 @@ def orbits2D():
     fig.tight_layout()
     plt.show()
 
+def EnergyCons():
+    fig=plt.figure(figsize=(3.5,2.6),dpi=200)
+    ax=fig.add_subplot(1,1,1)
+    ax.set_xlabel(r'$t$ (s)')
+    ax.set_ylabel(r'$E$ (J)')
 
+    ax.plot(timeLog, totalEnergy, label="energy", lw=0.4)
+
+    ax.legend()
+    fig.tight_layout()
+    plt.show()
+
+def LinearMomCons():
+    fig=plt.figure(figsize=(3.5,2.6),dpi=200)
+    ax=fig.add_subplot(1,1,1)
+    ax.set_xlabel(r'$t$ (s)')
+    ax.set_ylabel(r'$kgms^-2$ (J)')
+
+    ax.plot(timeLog, linearMom, label="CLM", lw=0.4)
+
+    ax.legend()
+    fig.tight_layout()
+    plt.show()
 
 def orbits3D():
     fig, ax = plt.subplots(subplot_kw={"projection": "3d"})

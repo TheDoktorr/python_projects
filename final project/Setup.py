@@ -102,6 +102,7 @@ def ClassMaker(body_input):
 
 # planets = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
 planets = ["Sun", "Mercury", "Venus", "Earth"]
+# planets = ["Sun", "Earth"]
 bodies = []
 
 
@@ -115,7 +116,12 @@ xpos = {particle.name: [] for particle in bodies}
 ypos = {particle.name: [] for particle in bodies}
 zpos = {particle.name: [] for particle in bodies}
 
-total_energy = 1
+
+#time and energy for logging and graphing
+timeLog = []
+linearMom = []
+totalEnergy = []
+mod_clm = np.linalg.norm(clm[0]+clm[1]+clm[2])
 
 
 

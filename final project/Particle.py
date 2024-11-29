@@ -99,7 +99,7 @@ class Particle:
         return Kenergy
 
 
-    def PotentialEnergy(self, bodies):
+    def potentialEnergy(self, bodies):
         potentialE = 0 
         for body in bodies:
 
@@ -113,6 +113,13 @@ class Particle:
 
 
         return potentialE
+    
+    def linearMomentum(self):
+        clm = np.array([0.0, 0.0, 0.0])
+
+        linearMomentum = self.mass * self.velocity
+        clm += linearMomentum
+        return clm
 
 
     
