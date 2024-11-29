@@ -97,4 +97,22 @@ class Particle:
         Kenergy =  0.5 * self.mass * Kvelocity**2
 
         return Kenergy
+
+
+    def PotentialEnergy(self, bodies):
+        potentialE = 0 
+        for body in bodies:
+
+            distance = np.linalg.norm(self.position - body.position)
+            if body is not self:
+                if distance < 1e-25:
+                    distance += 1e-10
+
+                U = ( -self.G * self.mass * body.mass ) / distance
+                potentialE += U
+
+
+        return potentialE
+
+
     

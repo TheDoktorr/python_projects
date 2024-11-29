@@ -5,41 +5,8 @@ from astropy.constants import G
 from spiceypy import sxform, mxvg
 from poliastro import constants
 
-
 from Particle import Particle
 
-
-"""
-earthMass = 5.97237e24     # https://en.wikipedia.org/wiki/Earth
-earthRadius = 63710 * 1e3  # https://en.wikipedia.org/wiki/Earth
-Earth = Particle(
-    position=np.array([0, 0, 0]),
-    velocity=np.array([0, 0, 0]),
-    acceleration=np.array([0, 0, 0]),
-    name="Earth",
-    mass=earthMass
-)
-
-satPosition = earthRadius + (35786 * 1e3)
-satVelocity = np.sqrt(Earth.G * Earth.mass / satPosition)  # from centrifugal force = gravitational force
-Satellite = Particle(
-    position=np.array([satPosition, 0, 0]),
-    velocity=np.array([0, satVelocity, 0]),
-    acceleration=np.array([0, 0, 0]),
-    name="Satellite",
-    mass=100.
-)
-
-satPosition = earthRadius + (35992 * 1e3)
-satVelocity = np.sqrt(Earth.G * Earth.mass / satPosition)  # from centrifugal force = gravitational force
-Satellite2 = Particle(
-    position=np.array([satPosition, 0, 0]),
-    velocity=np.array([0, satVelocity, 0]),
-    acceleration=np.array([0, 0, 0]),
-    name="Satellite",
-    mass=150.
-)
-"""
  # Using Astropy, we import the time
 t = Time("2024-11-26 17:00:00.0", scale="tdb")
 
@@ -72,23 +39,20 @@ def coord_conv(body):
     return new_position, new_velocity
 
 
-# earth mass
-# Earth_m = (constants.GM_earth / G).value
-# sun mass (in kg)
-# Sun_m = (constants.GM_sun / G).value
-
+# function to change input to uppercase, to work with variable names
 def UpperCase(lower):
     lowertxt = str(lower)
     lowertxt = lowertxt.capitalize()
     return lowertxt
-    
+
+# function to make word lowercase, as JPL names are all lowercase    
 def LowerCase(Upper):
     Uppertxt = str(Upper)
     Uppertxt = Uppertxt.lower()
     return Uppertxt
 
 
-
+# dictionary reference of mass constants for ClassMaker to reference
 GM_constants = {
     "sun": constants.GM_sun,
     "earth": constants.GM_earth,
@@ -103,26 +67,55 @@ GM_constants = {
 
 }
 
+
 def massFunc(body_input):
-    # dynamically building the variable   
+    """
+    This function uses the dictionary GM_constants to point to the correct mass based on the input
+    Output: mass in kilograms
+    """
+    # dynamically assign the variable 
     if body_input in GM_constants:
         GM_input = GM_constants[body_input]
-        return (GM_input / G).value
+        return (GM_input / G).value                         # ensure /G to keep units in kg
     else:
-        raise ValueError("No mass found for that body")
+        raise ValueError("No mass found for that body")     # error if body is not found in the dictionary
 
 
 def ClassMaker(body_input):
+    """
+    This function takes the body input single value and generates the initial conditions based on the JPL library
+    """
+    # this means regardless of input JPL can find the right values, and value names are capitalised
     body_input_l = LowerCase(body_input) 
     body_input_U =UpperCase(body_input)
 
-    body = Particle(position=np.array(coord_conv(body_input_l)[0]), 
-                    velocity=np.array(coord_conv(body_input_l)[1]), 
-                    acceleration=np.array([0, 0, 0]),  
-                    name=body_input_U,    
-                    mass = massFunc(body_input_l) )
+
+    body = Particle(position=np.array(coord_conv(body_input_l)[0]),     # coord_conv outputs (new_position, new_velocity)
+                    velocity=np.array(coord_conv(body_input_l)[1]),     # index ensures the correct element is chosen
+                    acceleration=np.array([0, 0, 0]),                   # accel initialised to 0, later updated
+                    name=body_input_U,                                  # var names capitalised
+                    mass = massFunc(body_input_l) )                     
 
     return body
+
+
+
+# planets = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+planets = ["Sun", "Mercury", "Venus", "Earth"]
+bodies = []
+
+
+for i in range(len(planets)):       # for each planet
+    
+    body = ClassMaker(planets[i])   # make a class associated with it
+    bodies.append(body)             # add to list
+    
+# setup body coordinate lists, as blank lists
+xpos = {particle.name: [] for particle in bodies}   
+ypos = {particle.name: [] for particle in bodies}
+zpos = {particle.name: [] for particle in bodies}
+
+total_energy = 1
 
 
 
