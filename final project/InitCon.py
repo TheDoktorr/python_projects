@@ -76,23 +76,7 @@ def coord_conv(body):
 # Earth_m = (constants.GM_earth / G).value
 # sun mass (in kg)
 # Sun_m = (constants.GM_sun / G).value
-"""
-Earth = Particle(
-    position=np.array(coord_conv("earth")[0]),
-    velocity=np.array(coord_conv("earth")[1]),
-    acceleration=np.array([0, 0, 0]),
-    name="Earth",
-    mass = Earth_m
-)
 
-Sun = Particle(
-    position=np.array(coord_conv("sun")[0]),
-    velocity=np.array(coord_conv("sun")[1]),
-    acceleration=np.array([0, 0, 0]),
-    name="Sun",
-    mass = Sun_m
-)
-"""
 def UpperCase(lower):
     lowertxt = str(lower)
     lowertxt = lowertxt.capitalize()
@@ -104,13 +88,17 @@ def LowerCase(Upper):
     return Uppertxt
 
 
-# print("Input planet 1 for the simulation")
-# body_input = input()
-
 
 GM_constants = {
     "sun": constants.GM_sun,
     "earth": constants.GM_earth,
+    "mercury": constants.GM_mercury,
+    "venus": constants.GM_venus,
+    "mars": constants.GM_mars,
+    "jupiter": constants.GM_jupiter,
+    "saturn": constants.GM_saturn,
+    "uranus": constants.GM_uranus
+
 
 }
 
@@ -135,8 +123,5 @@ def ClassMaker(body_input):
 
     return body
 
-Sun = ClassMaker("Sun")
-Earth = ClassMaker("Earth")
-bodies = [Sun, Earth]
 
 

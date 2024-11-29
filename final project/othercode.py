@@ -149,3 +149,21 @@ for i in range(iterations):
 
 # print results
  # with open(r"final project\output.txt", "w") as f:  
+
+ """
+Earth = Particle(
+    position=np.array(coord_conv("earth")[0]),
+    velocity=np.array(coord_conv("earth")[1]),
+    acceleration=np.array([0, 0, 0]),
+    name="Earth",
+    mass = Earth_m
+)
+
+Sun = Particle(
+    position=np.array(coord_conv("sun")[0]),
+    velocity=np.array(coord_conv("sun")[1]),
+    acceleration=np.array([0, 0, 0]),
+    name="Sun",
+    mass = Sun_m
+)
+"""
