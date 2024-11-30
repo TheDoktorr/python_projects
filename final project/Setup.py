@@ -121,7 +121,7 @@ zpos = {particle.name: [] for particle in bodies}
 timeLog = []
 linearMom = []
 totalEnergy = []
-mod_clm = np.linalg.norm(clm[0]+clm[1]+clm[2])
+
 
 
 

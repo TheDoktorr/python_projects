@@ -52,7 +52,8 @@ for i in range(iterations):
     if i % 1000 == 0:
             timeLog.append(time)
             totalEnergy.append(particle.kineticEnergy() + 0.5* particle.potentialEnergy(bodies))
-            linearMom.append(particle.linearMomentum())
+            mod_clm = np.linalg.norm(particle.linearMomentum()[0]+particle.linearMomentum()[1]+particle.linearMomentum()[2])
+            linearMom.append(mod_clm)
 
 
 
