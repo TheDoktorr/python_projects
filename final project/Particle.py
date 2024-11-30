@@ -115,11 +115,11 @@ class Particle:
         return potentialE
     
     def linearMomentum(self):
-        clm = np.array([0.0, 0.0, 0.0])
+       #  clm = np.array([0.0, 0.0, 0.0])
 
-        linearMomentum = self.mass * self.velocity
-        clm += linearMomentum
-        return clm
+       #  linear_Momentum = 
+       #  clm += linear_Momentum
+        return  self.mass * self.velocity
 
 
     

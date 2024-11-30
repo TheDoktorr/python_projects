@@ -20,6 +20,7 @@ def orbits2D():
     ax.legend()
     fig.tight_layout()
     plt.show()
+    plt.savefig()
 
 def EnergyCons():
     fig=plt.figure(figsize=(3.5,2.6),dpi=200)
@@ -32,18 +33,20 @@ def EnergyCons():
     ax.legend()
     fig.tight_layout()
     plt.show()
+    plt.savefig()
 
 def LinearMomCons():
-    fig=plt.figure(figsize=(3.5,2.6),dpi=200)
+    fig=plt.figure(dpi=200)
     ax=fig.add_subplot(1,1,1)
     ax.set_xlabel(r'$t$ (s)')
     ax.set_ylabel(r'$kgms^-2$ (J)')
-
+    
     ax.plot(timeLog, linearMom, label="CLM", lw=0.4)
 
     ax.legend()
     fig.tight_layout()
     plt.show()
+    plt.savefig()
 
 def orbits3D():
     fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
@@ -61,9 +64,11 @@ def orbits3D():
     ax.set_ylabel(r'$y$ (au)')
     ax.set_zlabel(r'$z$ (au)')
 
-    ax.xaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
-    ax.yaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
-    ax.zaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
-
+   # ax.xaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
+   # ax.yaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
+   # ax.zaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
+    ax.xaxis.set_ticks(np.arange(-35.0, 35.0, 10))
+    ax.yaxis.set_ticks(np.arange(-35.0, 35.0, 10))
+    ax.zaxis.set_ticks(np.arange(-35.0, 35.0, 10))
     ax.legend()
     plt.show()
