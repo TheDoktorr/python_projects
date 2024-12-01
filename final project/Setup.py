@@ -55,9 +55,9 @@ def LowerCase(Upper):
 # dictionary reference of mass constants for ClassMaker to reference
 GM_constants = {
     "sun": constants.GM_sun,
-    "earth": constants.GM_earth,
     "mercury": constants.GM_mercury,
     "venus": constants.GM_venus,
+    "earth": constants.GM_earth,
     "mars": constants.GM_mars,
     "jupiter": constants.GM_jupiter,
     "saturn": constants.GM_saturn,
@@ -87,7 +87,7 @@ def ClassMaker(body_input):
     """
     # this means regardless of input JPL can find the right values, and value names are capitalised
     body_input_l = LowerCase(body_input) 
-    body_input_U =UpperCase(body_input)
+    body_input_U = UpperCase(body_input)
 
 
     body = Particle(position=np.array(coord_conv(body_input_l)[0]),     # coord_conv outputs (new_position, new_velocity)
@@ -100,8 +100,8 @@ def ClassMaker(body_input):
 
 
 
-planets = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
-# planets = ["Sun", "Mercury", "Venus", "Earth"]
+# planets = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+planets = ["Sun", "Mercury", "Venus", "Earth"]
 # planets = ["Sun", "Earth"]
 bodies = []
 
@@ -120,8 +120,7 @@ zpos = {particle.name: [] for particle in bodies}
 #time and energy for logging and graphing
 timeLog = []
 linearMom = []
+angularMom =[]
 totalEnergy = []
-
-
 
 

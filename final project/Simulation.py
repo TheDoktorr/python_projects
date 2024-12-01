@@ -12,7 +12,7 @@ from Setup import *
 
 time = 0 
 deltaT = 3600
-iterations = 2000000
+iterations = 10000
 #int(31_557_600 / deltaT)
 
  # initialisation string 
@@ -22,8 +22,6 @@ if not isinstance(method, (int)):
     raise ValueError("This is not an option")
 if method > 3:
     raise ValueError("This is not one of the options!")
-
-
 
 
     
@@ -41,45 +39,55 @@ for i in range(iterations):
         
                     
     time += deltaT
-  #  if i % 1000 == 0:
+
 
     for particle in bodies:
 
         xpos[particle.name].append(particle.position[0])
         ypos[particle.name].append(particle.position[1])
         zpos[particle.name].append(particle.position[2])
-  #  if i % 1000 == 0:
+        # Accumulate total energy
+
+  
     timeLog.append(time)
-
-        # Calculate total energy and momentum
-    total_energy = 0.0
-    total_momentum = np.array([0.0, 0.0, 0.0])
-
-    # Loop through particles
-    for p in bodies:
-            # Accumulate total energy
-        total_energy += p.kineticEnergy() + 0.5 * p.potentialEnergy(bodies)
-
-            # Accumulate total momentum vector
-        total_momentum += p.linearMomentum()
-
-        # Calculate magnitude of the total momentum vector
-    total_momentum_magnitude = np.linalg.norm(total_momentum)
     print(f"Iteration {i}")
+    total_linearMom = sum(p.linearMomentum() for p in bodies)
+    linearMom.append(np.linalg.norm(total_linearMom))
 
-        # Store results
+    # Calculate total energy and momentum
+    total_energy = 0.0
+    #total_momentum = np.array([0.0, 0.0, 0.0])
+    total_ang_mom = np.array([0.0, 0.0, 0.0])
+    for particle in bodies:
+        total_energy += particle.kineticEnergy() + 0.5 * particle.potentialEnergy(bodies)
+        print(particle.mass)
+        print(particle.velocity)
+        # Accumulate total momentum vector
+        
+        total_ang_mom += particle.angularMomentum()
+
+
+
+    # Calculate magnitude of the total momentum vector
+  
+    total_ang_mom_mag = np.linalg.norm(total_ang_mom)
+
+    # Store results
     totalEnergy.append(total_energy)
-    linearMom.append(total_momentum_magnitude)
-
+    
+    angularMom.append(total_ang_mom_mag)
 
 
 orbits2D()
 orbits3D()
 EnergyCons()
 LinearMomCons()
+AngMomCons()
+
 """
 list to do:
 linear momentum - CONVSERED
+keplers laws
 angular kinetic  - probs not
 angular momentum
 verlet

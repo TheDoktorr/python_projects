@@ -20,7 +20,7 @@ def orbits2D():
     ax.legend()
     fig.tight_layout()
     plt.show()
-    plt.savefig()
+    
 
 def EnergyCons():
     fig=plt.figure(figsize=(3.5,2.6),dpi=200)
@@ -33,7 +33,7 @@ def EnergyCons():
     ax.legend()
     fig.tight_layout()
     plt.show()
-    plt.savefig()
+    
 
 def LinearMomCons():
     fig=plt.figure(dpi=200)
@@ -46,7 +46,20 @@ def LinearMomCons():
     ax.legend()
     fig.tight_layout()
     plt.show()
-    plt.savefig()
+    
+
+def AngMomCons():
+    fig=plt.figure(dpi=200)
+    ax=fig.add_subplot(1,1,1)
+    ax.set_xlabel(r'$t$ (s)')
+    ax.set_ylabel(r'$kgms^-2$ (J)')
+    
+    ax.plot(timeLog, angularMom, label="CAM", lw=0.4)
+
+    ax.legend()
+    fig.tight_layout()
+    plt.show()
+    
 
 def orbits3D():
     fig, ax = plt.subplots(subplot_kw={"projection": "3d"})

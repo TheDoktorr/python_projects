@@ -44,7 +44,7 @@ class Particle:
         Alternative method for updating based on Euler-Cromer method 
         
         """
-        self.deltaT = deltaT 
+        
         self.velocity = self.velocity + self.acceleration * deltaT
         self.position = self.position + self.velocity * deltaT
 
@@ -115,11 +115,16 @@ class Particle:
         return potentialE
     
     def linearMomentum(self):
-       #  clm = np.array([0.0, 0.0, 0.0])
+        clm = np.array([0.0, 0.0, 0.0])
+        
+        linear_Momentum = self.mass * self.velocity
+        clm += linear_Momentum
+        return clm
+    
+    def angularMomentum(self):
 
-       #  linear_Momentum = 
-       #  clm += linear_Momentum
-        return  self.mass * self.velocity
+        return np.cross(self.position, (self.mass * self.velocity))
 
-
+    def masscaller(self):
+        return self.mass
     
