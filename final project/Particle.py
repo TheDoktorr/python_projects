@@ -1,23 +1,22 @@
 import numpy as np
-
-
+from astropy.constants import G
 
 class Particle:
     def __init__(
         self,
-        position=np.array([0, 0, 0], dtype=float),
-        velocity=np.array([0, 0, 0], dtype=float),
-        acceleration=np.array([0, -10, 0], dtype=float),
+        position=np.array([0, 0, 0], dtype=np.float64),
+        velocity=np.array([0, 0, 0], dtype=np.float64),
+        acceleration=np.array([0, -10, 0], dtype=np.float64),
         name="point particle",
         mass=1.0,
-        G = 6.67408E-11
+        G = G
     ):
-        self.position = np.copy(position).astype(float)
-        self.velocity = np.copy(velocity).astype(float)
-        self.acceleration = np.copy(acceleration).astype(float)
+        self.position = np.array(np.copy(position), dtype=np.float64)
+        self.velocity = np.array(np.copy(velocity), dtype=np.float64)
+        self.acceleration = np.array(np.copy(acceleration), dtype=np.float64)
         self.name = name
-        self.mass = np.copy(mass)
-        self.G = G
+        self.mass = np.float64(mass)
+        self.G = np.float64(G)
         
         
     def __str__(self):
@@ -50,21 +49,18 @@ class Particle:
 
         return self.position, self.velocity
 
-    def updateER(self, deltaT):
-        """
-        Place holder for Euler-richardson        
-        """
+
 
     def updateGravitationalAcceleration(self, body):
         
         # handle divide by 0 errors:
         distance = np.linalg.norm(self.position - body.position)
-        if distance == 0:
-            return np.array([0.0, 0.0, 0.0])
+       # if distance == 0:
+           # return np.array([0.0, 0.0, 0.0])
        
-
-        gravaccel = - (self.G * body.mass) * (self.position - body.position) / (distance ** 3)
-        self.acceleration = gravaccel
+        while distance > 0:
+            gravaccel = - (self.G * body.mass) * (self.position - body.position) / (distance ** 3)
+            self.acceleration = gravaccel
         return gravaccel
     
     def updateGravaccel(self, bodies):
@@ -78,16 +74,18 @@ class Particle:
         total_gravaccel = np.array([0.0, 0.0, 0.0])
         for body in bodies:
             if body is not self:
-                
+               # epsilon = 1e-6
                 distance = np.linalg.norm(self.position - body.position)
-                if distance < 1e-25:
-                    distance += 1e-10
+               # distance = np.sqrt(distance**2 + epsilon**2)
                 
-                gravaccel = - (self.G * body.mass) * (self.position - body.position) / (distance **3)
-                total_gravaccel += gravaccel
-        
+                epsilon = 1e-6  # Softening factor
+                if distance < 1e-25:
+                    distance = np.sqrt(distance**2 + epsilon**2)  # Softened distance
 
-        self.acceleration = total_gravaccel
+                gravaccel = -np.float64(self.G * body.mass) * (self.position - body.position) / (distance**3)
+                total_gravaccel += np.array(gravaccel, dtype=np.float64)
+
+        self.acceleration = np.array(total_gravaccel, dtype=np.float64)
         
     
 
@@ -115,11 +113,11 @@ class Particle:
         return potentialE
     
     def linearMomentum(self):
-        clm = np.array([0.0, 0.0, 0.0])
+        clm = np.array([0, 0, 0], dtype=np.float64)
         
         linear_Momentum = self.mass * self.velocity
         clm += linear_Momentum
-        return clm
+        return self.mass * self.velocity
     
     def angularMomentum(self):
 

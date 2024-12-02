@@ -209,3 +209,38 @@ Satellite2 = Particle(
 xx = xpos[name] / 149597870700
         yy = ypos[name] / 149597870700
         zz = zpos[name] / 149597870700
+
+
+
+"""
+linearMom = np.array(linearMom)
+plt.figure(figsize=(10, 6))
+plt.plot(timeLog, linearMom[:, 0], label="Px")  # x-component
+
+plt.ylabel("Momentum Components")
+plt.title("Momentum Components Over Time")
+plt.legend()
+plt.grid()
+plt.show()
+
+plt.figure(figsize=(10, 6))
+
+plt.plot(timeLog, linearMom[:, 1], label="Py")  # y-component
+
+plt.xlabel("Time")
+plt.ylabel("Momentum Components")
+plt.title("Momentum Components Over Time")
+plt.legend()
+plt.grid()
+plt.show()
+
+plt.figure(figsize=(10, 6))
+
+plt.plot(timeLog, linearMom[:, 2], label="Pz")  # z-component
+plt.xlabel("Time")
+plt.ylabel("Momentum Components")
+plt.title("Momentum Components Over Time")
+plt.legend()
+plt.grid()
+plt.show()
+"""

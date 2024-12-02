@@ -1,9 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-from Particle import Particle
 from Setup import *
+
 
 
 
@@ -14,9 +12,14 @@ def orbits2D():
     ax=fig.add_subplot(1,1,1)
     ax.set_xlabel(r'$x$ (m)')
     ax.set_ylabel(r'$y$ (m)')
-
     for name in xpos:
-        ax.plot(xpos[name], ypos[name], label = name, lw=0.4)
+        x = np.array(xpos[name]) /149597870700  # from NASA
+        y= np.array(ypos[name]) /149597870700
+   
+        ax.plot(x, y, label = name, lw=0.4)
+
+    ax.xaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
+    ax.yaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
     ax.legend()
     fig.tight_layout()
     plt.show()
@@ -39,13 +42,15 @@ def LinearMomCons():
     fig=plt.figure(dpi=200)
     ax=fig.add_subplot(1,1,1)
     ax.set_xlabel(r'$t$ (s)')
-    ax.set_ylabel(r'$kgms^-2$ (J)')
+    ax.set_ylabel(r'$ (kg ms^{-1})$')
     
-    ax.plot(timeLog, linearMom, label="CLM", lw=0.4)
+   # linearMom = np.array(linearMom)
+    ax.plot(timeLog, linearMom, label="CLM", lw=1)
 
     ax.legend()
     fig.tight_layout()
     plt.show()
+
     
 
 def AngMomCons():
@@ -85,3 +90,5 @@ def orbits3D():
     ax.zaxis.set_ticks(np.arange(-35.0, 35.0, 10))
     ax.legend()
     plt.show()
+
+

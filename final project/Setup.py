@@ -1,14 +1,10 @@
 import numpy as np
-from astropy.time import Time
 from astropy.coordinates import get_body_barycentric_posvel
 from astropy.constants import G
 from spiceypy import sxform, mxvg
-from poliastro import constants
+from constants import *
 
 from Particle import Particle
-
- # Using Astropy, we import the time
-t = Time("2024-11-26 17:00:00.0", scale="tdb")
 
 # we now get the positions and velocities of solar system bodies
 def coord_conv(body):
@@ -51,23 +47,6 @@ def LowerCase(Upper):
     Uppertxt = Uppertxt.lower()
     return Uppertxt
 
-
-# dictionary reference of mass constants for ClassMaker to reference
-GM_constants = {
-    "sun": constants.GM_sun,
-    "mercury": constants.GM_mercury,
-    "venus": constants.GM_venus,
-    "earth": constants.GM_earth,
-    "mars": constants.GM_mars,
-    "jupiter": constants.GM_jupiter,
-    "saturn": constants.GM_saturn,
-    "uranus": constants.GM_uranus,
-    "neptune": constants.GM_neptune
-
-
-}
-
-
 def massFunc(body_input):
     """
     This function uses the dictionary GM_constants to point to the correct mass based on the input
@@ -90,9 +69,9 @@ def ClassMaker(body_input):
     body_input_U = UpperCase(body_input)
 
 
-    body = Particle(position=np.array(coord_conv(body_input_l)[0]),     # coord_conv outputs (new_position, new_velocity)
-                    velocity=np.array(coord_conv(body_input_l)[1]),     # index ensures the correct element is chosen
-                    acceleration=np.array([0, 0, 0]),                   # accel initialised to 0, later updated
+    body = Particle(position=np.array(coord_conv(body_input_l)[0], dtype=np.float64),     # coord_conv outputs (new_position, new_velocity)
+                    velocity=np.array(coord_conv(body_input_l)[1], dtype=np.float64),     # index ensures the correct element is chosen
+                    acceleration=np.array([0, 0, 0], dtype=np.float64),                   # accel initialised to 0, later updated
                     name=body_input_U,                                  # var names capitalised
                     mass = massFunc(body_input_l) )                     
 
@@ -119,8 +98,9 @@ zpos = {particle.name: [] for particle in bodies}
 
 #time and energy for logging and graphing
 timeLog = []
-linearMom = []
+linearMom = [] 
 angularMom =[]
 totalEnergy = []
+
 
 
