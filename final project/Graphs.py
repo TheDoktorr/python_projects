@@ -21,8 +21,9 @@ def orbits2D():
     ax.xaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
     ax.yaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
     ax.legend()
-    fig.tight_layout()
+    plt.savefig("2Dorbits.svg")
     plt.show()
+
     
 
 def EnergyCons():
@@ -34,8 +35,9 @@ def EnergyCons():
     ax.plot(timeLog, totalEnergy, label="energy", lw=0.4)
 
     ax.legend()
-    fig.tight_layout()
+    plt.savefig("EnergyCons.svg")
     plt.show()
+
     
 
 def LinearMomCons():
@@ -48,8 +50,10 @@ def LinearMomCons():
     ax.plot(timeLog, linearMom, label="CLM", lw=1)
 
     ax.legend()
-    fig.tight_layout()
+    # fig.tight_layout()
+    plt.savefig("LinMomentum.svg")
     plt.show()
+ 
 
     
 
@@ -62,8 +66,10 @@ def AngMomCons():
     ax.plot(timeLog, angularMom, label="CAM", lw=0.4)
 
     ax.legend()
-    fig.tight_layout()
+    # fig.tight_layout()
+    plt.savefig("AngMomentum.svg")
     plt.show()
+    
     
 
 def orbits3D():

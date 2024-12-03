@@ -1,5 +1,6 @@
 import numpy as np
 from astropy.constants import G
+import copy
 
 class Particle:
     def __init__(
@@ -36,7 +37,7 @@ class Particle:
         self.position = self.position + self.velocity * self.deltaT
         self.velocity = self.velocity  + self.acceleration * self.deltaT
 
-        return self.position, self.velocity
+       # return self.position, self.velocity
     
     def updateEC(self, deltaT):
         """
@@ -47,7 +48,7 @@ class Particle:
         self.velocity = self.velocity + self.acceleration * deltaT
         self.position = self.position + self.velocity * deltaT
 
-        return self.position, self.velocity
+      #  return self.position, self.velocity
 
 
 
@@ -87,7 +88,22 @@ class Particle:
 
         self.acceleration = np.array(total_gravaccel, dtype=np.float64)
         
-    
+    def updateVerlet(self, bodies, deltaT):
+        """
+        Method for approximating positions and velocities based on accelerations, using end accelerations to update velocity
+        This smooths out changes in acceleration
+        input also requires bodies to update end acceleration
+        """    
+        
+        #accelN1 = np.array([0.0, 0.0, 0.0])
+        self.position = self.position + self.velocity*deltaT + 0.5*self.acceleration*(deltaT)**2
+        est = copy.deepcopy(self)
+        bodiesN = copy.deepcopy(bodies)
+        est.updateGravaccel(bodiesN)
+
+        self.velocity = self.velocity + 0.5*(est.acceleration + self.acceleration)*deltaT
+        self.updateGravaccel(bodies)
+
 
     def kineticEnergy(self):
         Kvelocity= np.linalg.norm(self.velocity)
@@ -113,10 +129,10 @@ class Particle:
         return potentialE
     
     def linearMomentum(self):
-        clm = np.array([0, 0, 0], dtype=np.float64)
+        # clm = np.array([0, 0, 0], dtype=np.float64)
         
-        linear_Momentum = self.mass * self.velocity
-        clm += linear_Momentum
+        # linear_Momentum = self.mass * self.velocity
+        #clm += linear_Momentum
         return self.mass * self.velocity
     
     def angularMomentum(self):

@@ -102,5 +102,7 @@ linearMom = []
 angularMom =[]
 totalEnergy = []
 
+print(bodies)
+
 
 

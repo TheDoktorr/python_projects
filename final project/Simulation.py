@@ -10,18 +10,16 @@ from Setup import *
 
 time = 0 
 deltaT = 3600
-iterations =int(1 *31_536_000 / deltaT)
+iterations =int(2 *31_536_000 / deltaT)
 #int(1 *31_557_600 / deltaT)
 
- # initialisation string 
-print("What Method would you like to use, Euler (1), Euler-Cromer (2)  or ")
+ # initialisation strin2g 
+print("What Method would you like to use, Euler (1), Euler-Cromer (2)  or Verlet (3)?")
 method = int(input())
 if not isinstance(method, (int)):
     raise ValueError("This is not an option")
 if method > 3:
     raise ValueError("This is not one of the options!")
-
-
 
 
     
@@ -30,7 +28,7 @@ if method > 3:
 for i in range(iterations):
     
     timeLog.append(time)
-    print(f"Iteration {i}")
+    # print(f"Iteration {i}")
     # init total energy and momentum
     total_energy = 0.0
     total_momentum = np.array([0.0, 0.0, 0.0])
@@ -43,6 +41,8 @@ for i in range(iterations):
             particle.updateE(deltaT)
         elif method == 2:
             particle.updateEC(deltaT)
+        elif method ==3:
+            particle.updateVerlet(bodies, deltaT)
         
         xpos[particle.name].append(particle.position[0])
         ypos[particle.name].append(particle.position[1])
@@ -53,8 +53,8 @@ for i in range(iterations):
     
     
     linear_momentum = sum(particle.linearMomentum() for particle in bodies)
-    linearMom.append((linear_momentum))
-# np.linalg.norm
+    linearMom.append(np.linalg.norm(linear_momentum))
+# 
     angularMomentum = np.sum([np.float64(particle.angularMomentum()) for particle in bodies], axis=0)
     angularMom.append(np.float64(np.linalg.norm(angularMomentum)))
 
@@ -70,7 +70,7 @@ orbits3D()
 EnergyCons()
 LinearMomCons()
 AngMomCons()
-"""
+
 linearMom.sort()
 print(linearMom[0], linearMom[-1])
 totalEnergy.sort()
@@ -85,6 +85,8 @@ print(angularMom[0], angularMom[1])
 # Py has variation +3e23 inc.
 # Pz has variation +1.2e23 inc. (e29)
 linearMom = np.array(linearMom)
+
+
 plt.figure(figsize=(10, 6))
 plt.plot(timeLog, linearMom[:, 0], label="Px")  # x-component
 
@@ -117,7 +119,6 @@ plt.show()
 
 
 
-"""
 list to do:
 linear momentum - CONVSERED
 kepler
