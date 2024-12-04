@@ -10,8 +10,8 @@ from Setup import *
 def orbits2D():
     fig=plt.figure(figsize=(3.5,2.6),dpi=200)
     ax=fig.add_subplot(1,1,1)
-    ax.set_xlabel(r'$x$ (m)')
-    ax.set_ylabel(r'$y$ (m)')
+    ax.set_xlabel(r'$x$ (au)')
+    ax.set_ylabel(r'$y$ (au)')
     for name in xpos:
         x = np.array(xpos[name]) /149597870700  # from NASA
         y= np.array(ypos[name]) /149597870700
@@ -21,7 +21,7 @@ def orbits2D():
     ax.xaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
     ax.yaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
     ax.legend()
-    plt.savefig("2Dorbits.svg")
+    plt.savefig("2DorbitsE.svg")
     plt.show()
 
     
@@ -32,10 +32,10 @@ def EnergyCons():
     ax.set_xlabel(r'$t$ (s)')
     ax.set_ylabel(r'$E$ (J)')
 
-    ax.plot(timeLog, totalEnergy, label="energy", lw=0.4)
+    ax.plot(timeLog, totalEnergy, label="Total Energy", lw=0.4)
 
     ax.legend()
-    plt.savefig("EnergyCons.svg")
+    plt.savefig("EnergyConsE.svg")
     plt.show()
 
     
@@ -44,14 +44,14 @@ def LinearMomCons():
     fig=plt.figure(dpi=200)
     ax=fig.add_subplot(1,1,1)
     ax.set_xlabel(r'$t$ (s)')
-    ax.set_ylabel(r'$ (kg ms^{-1})$')
+    ax.set_ylabel(r'$ (kg m/s$')
     
    # linearMom = np.array(linearMom)
-    ax.plot(timeLog, linearMom, label="CLM", lw=1)
+    ax.plot(timeLog, linearMom, label="Linear Momentum", lw=1)
 
     ax.legend()
     # fig.tight_layout()
-    plt.savefig("LinMomentum.svg")
+    plt.savefig("LinMomentumE.svg")
     plt.show()
  
 
@@ -61,13 +61,13 @@ def AngMomCons():
     fig=plt.figure(dpi=200)
     ax=fig.add_subplot(1,1,1)
     ax.set_xlabel(r'$t$ (s)')
-    ax.set_ylabel(r'$kgms^-2$ (J)')
+    ax.set_ylabel(r'$kg m/s^2$ (J)')
     
-    ax.plot(timeLog, angularMom, label="CAM", lw=0.4)
+    ax.plot(timeLog, angularMom, label="Angular Momentum", lw=0.4)
 
     ax.legend()
     # fig.tight_layout()
-    plt.savefig("AngMomentum.svg")
+    plt.savefig("AngMomentumE.svg")
     plt.show()
     
     

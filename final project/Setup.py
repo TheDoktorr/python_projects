@@ -79,8 +79,8 @@ def ClassMaker(body_input):
 
 
 
-# planets = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
-planets = ["Sun", "Mercury", "Venus", "Earth"]
+planets = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+#planets = ["Sun", "Mercury", "Venus", "Earth"]
 # planets = ["Sun", "Earth"]
 bodies = []
 

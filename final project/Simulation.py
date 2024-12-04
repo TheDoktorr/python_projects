@@ -9,8 +9,8 @@ from Setup import *
 # iterations = Total Time/deltaT
 
 time = 0 
-deltaT = 3600
-iterations =int(2 *31_536_000 / deltaT)
+deltaT = 60
+iterations =int(170 *31_536_000 / deltaT)
 #int(1 *31_557_600 / deltaT)
 
  # initialisation strin2g 
@@ -77,6 +77,14 @@ totalEnergy.sort()
 print(totalEnergy[0],totalEnergy[1])
 angularMom.sort()
 print(angularMom[0], angularMom[1])
+with open(r"final project\output.txt", "w") as f:  
+    f.writelines(linearMom)
+with open(r"final project\output2.txt", "w") as g:
+    g.writelines(timeLog)
+
+f.close()
+g.close()
+
 """
 # 1.170935903e+17
 # 7.3360039e+23
