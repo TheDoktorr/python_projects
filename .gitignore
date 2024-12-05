@@ -1,4 +1,4 @@
-.vscode/settings.json
-
-# intellij configs
-.idea/
+# folder for report graphs
+graphs
+# intelliJ config colder
+/.idea

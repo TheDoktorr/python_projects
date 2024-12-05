@@ -2,9 +2,11 @@ import numpy as np
 from astropy.coordinates import get_body_barycentric_posvel
 from astropy.constants import G
 from spiceypy import sxform, mxvg
-from constants import *
 
 from Particle import Particle
+from Constants import *
+import os
+import platform
 
 # we now get the positions and velocities of solar system bodies
 def coord_conv(body):
@@ -69,21 +71,85 @@ def ClassMaker(body_input):
     body_input_U = UpperCase(body_input)
 
 
-    body = Particle(position=np.array(coord_conv(body_input_l)[0], dtype=np.float64),     # coord_conv outputs (new_position, new_velocity)
-                    velocity=np.array(coord_conv(body_input_l)[1], dtype=np.float64),     # index ensures the correct element is chosen
-                    acceleration=np.array([0, 0, 0], dtype=np.float64),                   # accel initialised to 0, later updated
-                    name=body_input_U,                                  # var names capitalised
+    body = Particle(position=np.array(coord_conv(body_input_l)[0], dtype=np.float64),      # coord_conv outputs (new_position, new_velocity)
+                    velocity=np.array(coord_conv(body_input_l)[1], dtype=np.float64),                 # index ensures the correct element is chosen
+                    acceleration=np.array([0, 0, 0], dtype=np.float64),                                           # accel initialised to 0, later updated
+                    name=body_input_U,                                                                                        # var names capitalised
                     mass = massFunc(body_input_l) )                     
 
     return body
 
+planets = ["Sun", "Mercury", "Venus", "Earth"]
 
+def update_planets(new_list):
+    global planets
+    planets[:] = new_list
 
-planets = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
-#planets = ["Sun", "Mercury", "Venus", "Earth"]
-# planets = ["Sun", "Earth"]
+def clear_terminal():
+    if platform.system() == "Windows":
+        os.system("cls")  # Clear screen on Windows
+    else:
+        os.system("clear")  # Clear screen on Linux/Mac
+"""
+# user input system
+while True:
+    # Single input for y/n
+    user_input = input("Would you like to use a preset system? (y / n): ").strip().lower()
+    
+    if user_input == "y":
+        # Provide preset options
+        print("2 body (Sun and Earth) for 1 Julian year, time-step 1 minute (1)\n"
+            "4 body (Sun to Earth) for 1 Julian year, time-step 1 hour  (2) \n"
+              "9 body (Sun to Neptune) for 170 years, time-step 1 day (3) \n")
+    
+        # Handle preset selection
+        try:
+            preset = int(input("Enter your preset choice (1 or 2): ").strip())
+            
+            if preset ==1:
+                update_planets(["Sun", "Earth"])
+                deltaT = 60
+                iterations = int(31557600 / deltaT)
+                years = 1
+
+            elif preset == 2:
+                update_planets(["Sun", "Mercury", "Venus", "Earth"])
+                deltaT = 3600
+                iterations = int(31557600 / deltaT)
+                years = 1
+                
+            elif preset == 3:
+                update_planets(["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"])
+                deltaT = 86400
+                iterations = int(170 * 31557600 / deltaT)
+                years = 170
+
+            else:
+                raise ValueError("Invalid preset option selected.")
+            
+            # Ask for method choice
+            method = int(input("What Method would you like to use, Euler (1), Euler-Cromer (2), or Verlet (3)? ").strip())
+            if method not in [1, 2, 3]:
+                raise ValueError("This is not one of the options!")
+            break  # Exit the loop after successful input
+
+        except ValueError as e:
+            print(f"Error: {e}. Please try again.")
+    
+    elif user_input == "n":
+        print("You can decide your own variables")
+        
+        
+        break
+
+    else:
+        print("Invalid input! Please enter 'y' or 'n'.")
+
+clear_terminal()
+
+"""
+
 bodies = []
-
 
 for i in range(len(planets)):       # for each planet
     
@@ -96,13 +162,14 @@ ypos = {particle.name: [] for particle in bodies}
 zpos = {particle.name: [] for particle in bodies}
 
 
-#time and energy for logging and graphing
+#time and energy for graphing
 timeLog = []
 linearMom = [] 
 angularMom =[]
 totalEnergy = []
-
-print(bodies)
-
-
+# shorter lists to print output to txt file
+timeLogS = []
+linearMomS = [] 
+angularMomS =[]
+totalEnergyS = []
 

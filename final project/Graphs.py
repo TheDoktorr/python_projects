@@ -3,10 +3,6 @@ import matplotlib.pyplot as plt
 from Setup import *
 
 
-
-
-
-
 def orbits2D():
     fig=plt.figure(figsize=(3.5,2.6),dpi=200)
     ax=fig.add_subplot(1,1,1)
@@ -18,10 +14,10 @@ def orbits2D():
    
         ax.plot(x, y, label = name, lw=0.4)
 
-    ax.xaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
-    ax.yaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
+   #  ax.xaxis.set_ticks(np.arange(-35.0, 35, 10))
+   #  ax.yaxis.set_ticks(np.arange(-35.0, 35, 10))
     ax.legend()
-    plt.savefig("2DorbitsE.svg")
+    plt.savefig("2DorbitsV.svg")
     plt.show()
 
     
@@ -35,11 +31,10 @@ def EnergyCons():
     ax.plot(timeLog, totalEnergy, label="Total Energy", lw=0.4)
 
     ax.legend()
-    plt.savefig("EnergyConsE.svg")
+    plt.savefig("EnergyConsV.svg")
     plt.show()
 
     
-
 def LinearMomCons():
     fig=plt.figure(dpi=200)
     ax=fig.add_subplot(1,1,1)
@@ -51,7 +46,7 @@ def LinearMomCons():
 
     ax.legend()
     # fig.tight_layout()
-    plt.savefig("LinMomentumE.svg")
+    plt.savefig("LinMomentumV.svg")
     plt.show()
  
 
@@ -67,7 +62,7 @@ def AngMomCons():
 
     ax.legend()
     # fig.tight_layout()
-    plt.savefig("AngMomentumE.svg")
+    plt.savefig("AngMomentumV.svg")
     plt.show()
     
     
@@ -91,10 +86,12 @@ def orbits3D():
    # ax.xaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
    # ax.yaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
    # ax.zaxis.set_ticks(np.arange(-1.0, 1.01, 0.5))
-    ax.xaxis.set_ticks(np.arange(-35.0, 35.0, 10))
-    ax.yaxis.set_ticks(np.arange(-35.0, 35.0, 10))
-    ax.zaxis.set_ticks(np.arange(-35.0, 35.0, 10))
+    # ax.xaxis.set_ticks(np.arange(-35.0, 35.0, 10))
+    # ax.yaxis.set_ticks(np.arange(-35.0, 35.0, 10))
+    # ax.zaxis.set_ticks(np.arange(-35.0, 35.0, 10))
     ax.legend()
     plt.show()
+
+
 
 

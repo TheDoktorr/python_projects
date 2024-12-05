@@ -37,33 +37,17 @@ class Particle:
         self.position = self.position + self.velocity * self.deltaT
         self.velocity = self.velocity  + self.acceleration * self.deltaT
 
-       # return self.position, self.velocity
-    
     def updateEC(self, deltaT):
         """
         Alternative method for updating based on Euler-Cromer method 
         
         """
-        
+
         self.velocity = self.velocity + self.acceleration * deltaT
         self.position = self.position + self.velocity * deltaT
 
-      #  return self.position, self.velocity
 
 
-
-    def updateGravitationalAcceleration(self, body):
-        
-        # handle divide by 0 errors:
-        distance = np.linalg.norm(self.position - body.position)
-       # if distance == 0:
-           # return np.array([0.0, 0.0, 0.0])
-       
-        while distance > 0:
-            gravaccel = - (self.G * body.mass) * (self.position - body.position) / (distance ** 3)
-            self.acceleration = gravaccel
-        return gravaccel
-    
     def updateGravaccel(self, bodies):
         """
         Method for many body acceleration of bodies 
@@ -115,28 +99,18 @@ class Particle:
 
     def potentialEnergy(self, bodies):
         potentialE = 0 
+        epsilon = 1e-5
         for body in bodies:
-
-            distance = np.linalg.norm(self.position - body.position)
             if body is not self:
-                if distance < 1e-25:
-                    distance += 1e-10
-
-                U = ( -self.G * self.mass * body.mass ) / distance
+                distance = np.linalg.norm(self.position - body.position)
+                U = ( -self.G * self.mass * body.mass ) / (distance+epsilon)
                 potentialE += U
-
-
         return potentialE
     
     def linearMomentum(self):
-        # clm = np.array([0, 0, 0], dtype=np.float64)
-        
-        # linear_Momentum = self.mass * self.velocity
-        #clm += linear_Momentum
         return self.mass * self.velocity
     
     def angularMomentum(self):
-
         return np.cross(self.position, (self.mass * self.velocity))
 
     def masscaller(self):

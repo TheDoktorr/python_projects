@@ -1,11 +1,19 @@
-The Earth and Satellite's locations after 12000 seconds using:
-  Particle: Earth
-    Mass: 5.972e+24, 
-    position: [ 1.50283932e+10 -1.52518231e+11  2.34769568e+07]
-    velocity: [ 2.91430544e+04  2.89030208e+03 -1.37000004e+00]
-    acceleration: [-5.75871081e-04  5.69793478e-03 -2.14516562e-07]
-  Particle: Sun
-    Mass: 1.988e+30, 
-    position: [-2.93082592e+08 -1.06603212e+09  1.77755992e+07]
-    velocity: [11.93966263 -7.06538787 -0.19348268]
-    acceleration: [ 1.73126838e-09 -1.71135152e-08  6.44220507e-13]
+ time 3600 
+ system total energy -5.818445293213958e+33 
+ total linear momentum 2.764266749884349e+31 
+ and total angular momentum 7.538912865313049e+40
+
+
+Minimum linear momentum: 2.764266749884347e+31 
+ Maximum linear momentum: 2.7642667498843616e+31 
+
+
+
+Minimum total Energy: -5.81845885206104e+33 
+ Maximum total Energy: -5.817804672685382e+33 
+
+
+
+Minimum angular momentum: 7.53891286531302e+40 
+ Maximum angular momentum: 7.538912865313055e+40 
+

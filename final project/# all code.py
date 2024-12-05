@@ -42,7 +42,7 @@ class Particle:
         self.position = np.float64(self.position) + np.float64(self.velocity) * np.float64(deltaT)
         self.velocity = np.float64(self.velocity) + np.float64(self.acceleration) * np.float64(deltaT)
 
-        return self.position, self.velocity
+
     
     def updateEC(self, deltaT):
         """
@@ -52,7 +52,6 @@ class Particle:
         self.velocity = self.velocity + self.acceleration * deltaT
         self.position = self.position + self.velocity * deltaT
 
-        return self.position, self.velocity
 
 
 
@@ -99,7 +98,7 @@ class Particle:
         return np.float64(potentialE)
 
 
-        return potentialE
+        
     
     def linearMomentum(self):
         clm = np.array([0.0, 0.0, 0.0])
@@ -297,6 +296,21 @@ def LinearMomCons():
     fig.tight_layout()
     plt.show()
 
+    
+
+def EnergyCons():
+    fig=plt.figure(figsize=(3.5,2.6),dpi=200)
+    ax=fig.add_subplot(1,1,1)
+    ax.set_xlabel(r'$t$ (s)')
+    ax.set_ylabel(r'$E$ (J)')
+
+    ax.plot(timeLog, totalEnergy, label="Total Energy", lw=0.4)
+
+    ax.legend()
+    plt.savefig("EnergyConsV.svg")
+    plt.show()
+
+EnergyCons()
 
 LinearMomCons()
 linearMom.sort()
