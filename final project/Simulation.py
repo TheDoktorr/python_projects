@@ -8,11 +8,12 @@ progress = 0
 no_planets = len(bodies)
 print(planets)
 
+"""
 deltaT = 3600
 method = 1
 iterations = int(166 * 31_557_600 / deltaT)
 years = 166
-
+"""
 
 print(f"running the simulation for {no_planets} bodies, {years} years, with a time step of {deltaT} seconds. ")
 print(f"(This will run for {iterations} iterations)")

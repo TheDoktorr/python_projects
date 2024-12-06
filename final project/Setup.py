@@ -4,7 +4,7 @@ from astropy.constants import G
 from spiceypy import sxform, mxvg
 
 from Particle import Particle
-from Constants import *
+from constants import *
 import os
 import platform
 
@@ -90,7 +90,7 @@ def clear_terminal():
         os.system("cls")  # Clear screen on Windows
     else:
         os.system("clear")  # Clear screen on Linux/Mac
-"""
+
 # user input system
 while True:
     # Single input for y/n
@@ -138,16 +138,18 @@ while True:
     
     elif user_input == "n":
         print("You can decide your own variables")
-        
-        
+        print("Enter your desired planets in the form body1, body2, body3")
+        planets = input().split()
+        print(type(planets))
+        print(planets)
         break
 
     else:
         print("Invalid input! Please enter 'y' or 'n'.")
 
-clear_terminal()
+# clear_terminal()
 
-"""
+
 
 bodies = []
 
