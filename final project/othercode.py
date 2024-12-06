@@ -278,3 +278,34 @@ plt.legend()
 plt.grid()
 plt.show()
 
+verlet
+
+        #accelN1 = np.array([0.0, 0.0, 0.0])
+        self.position = self.position + self.velocity*deltaT + 0.5*self.acceleration*(deltaT)**2
+        est = copy.deepcopy(self)
+        bodiesN = copy.deepcopy(bodies)
+        est.updateGravaccel(bodiesN)
+
+        self.velocity = self.velocity + 0.5*(est.acceleration + self.acceleration)*deltaT
+        self.updateGravaccel(bodies)
+
+
+
+
+        i =0
+        estimatedbodies = [np.zeros(3, dtype=np.float64) for j in range(len(bodies))]
+        for body in bodies:
+            body.position = body.position + body.velocity*deltaT + 0.5*body.acceleration*(deltaT)**2
+            i += 1
+        estimatedbodies[i] = copy.deepcopy(body)
+
+        bodiescopy = copy.deepcopy(estimatedbodies)
+        i = 0
+        for body in bodies:
+            estimatedbodies[i].updateGravaccel(bodiescopy)
+            i += 1
+
+        i=0
+        for body in bodies:
+            body.velocity = body.velocity + 0.5*(estimatedbodies[i].acceleration + body.acceleration)*deltaT
+            i += 1

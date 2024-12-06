@@ -138,16 +138,24 @@ while True:
     
     elif user_input == "n":
         print("You can decide your own variables")
-        print("Enter your desired planets in the form body1, body2, body3")
+        print("Enter your desired planets in the form body1 body2 body3 \n"
+              "please dont put any commas or separators in!")
         planets = input().split()
-        print(type(planets))
-        print(planets)
+        print("please enter the timestep")
+        deltaT = int(input())
+        print("please enter the time to run the simulation for in years")
+        years = int(input())
+        iterations = int(years * 31557600 / deltaT)
+        method = int(input("What Method would you like to use, Euler (1), Euler-Cromer (2), or Verlet (3)? ").strip())
+        if method not in [1, 2, 3]:
+            raise ValueError("This is not one of the options!")
+          # Exit the loop after successful input
         break
 
     else:
         print("Invalid input! Please enter 'y' or 'n'.")
 
-# clear_terminal()
+clear_terminal()
 
 
 

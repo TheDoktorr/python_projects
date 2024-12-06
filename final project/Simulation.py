@@ -25,9 +25,6 @@ elif method ==3:
     print("You have chosen the Verlet Method!")
 
 
-
-
-
 # main simulation loop
 
 for i in range(iterations):
@@ -39,14 +36,16 @@ for i in range(iterations):
     for particle in bodies:       
         particle.updateGravaccel(bodies)
 
+    if method == 3:
+        particle.updateVerlet(bodies, deltaT)
     for particle in bodies:
 
         if method == 1:
             particle.updateE(deltaT)
         elif method == 2:
             particle.updateEC(deltaT)
-        elif method ==3:
-            particle.updateVerlet(bodies, deltaT)
+      #  elif method ==3:
+       #     particle.updateVerlet(bodies, deltaT)
         
         xpos[particle.name].append(particle.position[0])
         ypos[particle.name].append(particle.position[1])
@@ -94,7 +93,7 @@ for i in range(iterations):
     if i % tenpercent < 1:
         print(f"{progress}%")
         progress += 10
-    if i % 10000 == 0:
+    if i % 1000 == 0:
         timeLogS.append(time)
         totalEnergyS.append(np.float64(total_energy))
         linearMomS.append(np.linalg.norm(linear_momentum))
@@ -115,8 +114,9 @@ AngMomCons()
 print("The simulation has finished")
 with open(r'final project/output.txt', 'w') as f:
     for j in range(len(timeLogS)):
-        f.write(f" time {timeLogS[j]} \n system total energy {totalEnergyS[j]} \n total linear momentum {linearMomS[j]} \n and total angular momentum {angularMomS[j]}\n")
+        f.write(f" time {timeLogS[j]} \n system total energy {totalEnergyS[j]} \n total linear momentum {linearMomS[j]} \n and total angular momentum {angularMomS[j]}\n \n")
     print("\n", file = f)
+    print("system totals")
     linearMom.sort()
     print(f"Minimum linear momentum: {linearMom[0]} \n Maximum linear momentum: {linearMom[-1]} \n", file = f )
     print("\n", file = f)
@@ -127,7 +127,7 @@ with open(r'final project/output.txt', 'w') as f:
     print(f"Minimum angular momentum: {angularMom[0]} \n Maximum angular momentum: {angularMom[-1]} \n", file = f )
 
 
-
+ # body crosses from -y to +y
 
 
 
