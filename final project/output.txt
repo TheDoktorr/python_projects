@@ -1,19 +1,599 @@
  time 3600 
- system total energy -5.818445293213958e+33 
- total linear momentum 2.764266749884349e+31 
- and total angular momentum 7.538912865313049e+40
+ system total energy -1.98023248435921e+35 
+ total linear momentum 2.8590844170679213e+27 
+ and total angular momentum 3.1322961130396696e+43
+ time 36003600 
+ system total energy -1.978482087952346e+35 
+ total linear momentum 2.85908441710739e+27 
+ and total angular momentum 3.1324189694648857e+43
+ time 72003600 
+ system total energy -1.9770766507449543e+35 
+ total linear momentum 2.8590844172592496e+27 
+ and total angular momentum 3.1325322940245646e+43
+ time 108003600 
+ system total energy -1.975856056304217e+35 
+ total linear momentum 2.8590844171887626e+27 
+ and total angular momentum 3.1326388956032856e+43
+ time 144003600 
+ system total energy -1.9747655116378673e+35 
+ total linear momentum 2.8590844171706394e+27 
+ and total angular momentum 3.132741818321981e+43
+ time 180003600 
+ system total energy -1.973748393720467e+35 
+ total linear momentum 2.8590844172432687e+27 
+ and total angular momentum 3.132844591295614e+43
+ time 216003600 
+ system total energy -1.9728151276618633e+35 
+ total linear momentum 2.859084417155202e+27 
+ and total angular momentum 3.1329492359194207e+43
+ time 252003600 
+ system total energy -1.971913395297166e+35 
+ total linear momentum 2.85908441708041e+27 
+ and total angular momentum 3.133058628838992e+43
+ time 288003600 
+ system total energy -1.9710500467446554e+35 
+ total linear momentum 2.8590844170582077e+27 
+ and total angular momentum 3.133172591109283e+43
+ time 324003600 
+ system total energy -1.97021481426432e+35 
+ total linear momentum 2.85908441722812e+27 
+ and total angular momentum 3.1332889813473853e+43
+ time 360003600 
+ system total energy -1.9694232211726105e+35 
+ total linear momentum 2.8590844173720704e+27 
+ and total angular momentum 3.1334033001078095e+43
+ time 396003600 
+ system total energy -1.9687020511075147e+35 
+ total linear momentum 2.859084417448891e+27 
+ and total angular momentum 3.133511234918814e+43
+ time 432003600 
+ system total energy -1.967994767523348e+35 
+ total linear momentum 2.859084417439855e+27 
+ and total angular momentum 3.1336128741299686e+43
+ time 468003600 
+ system total energy -1.967354343651074e+35 
+ total linear momentum 2.859084417438686e+27 
+ and total angular momentum 3.133707908686252e+43
+ time 504003600 
+ system total energy -1.9667245318440127e+35 
+ total linear momentum 2.8590844174654074e+27 
+ and total angular momentum 3.133799761759302e+43
+ time 540003600 
+ system total energy -1.9661351664663987e+35 
+ total linear momentum 2.85908441740969e+27 
+ and total angular momentum 3.1338903909078636e+43
+ time 576003600 
+ system total energy -1.965539889795539e+35 
+ total linear momentum 2.859084417301341e+27 
+ and total angular momentum 3.133983286361876e+43
+ time 612003600 
+ system total energy -1.9649719755404373e+35 
+ total linear momentum 2.8590844173710715e+27 
+ and total angular momentum 3.134079994576307e+43
+ time 648003600 
+ system total energy -1.9644107452032888e+35 
+ total linear momentum 2.859084417456284e+27 
+ and total angular momentum 3.1341818386515875e+43
+ time 684003600 
+ system total energy -1.9638418926626637e+35 
+ total linear momentum 2.8590844176173165e+27 
+ and total angular momentum 3.1342883164403096e+43
+ time 720003600 
+ system total energy -1.963282440649889e+35 
+ total linear momentum 2.8590844177132456e+27 
+ and total angular momentum 3.1343953759921673e+43
+ time 756003600 
+ system total energy -1.9627552531681473e+35 
+ total linear momentum 2.8590844179856826e+27 
+ and total angular momentum 3.134498498084317e+43
+ time 792003600 
+ system total energy -1.9622562459382742e+35 
+ total linear momentum 2.859084418082595e+27 
+ and total angular momentum 3.13459538950071e+43
+ time 828003600 
+ system total energy -1.961783435230681e+35 
+ total linear momentum 2.8590844180705973e+27 
+ and total angular momentum 3.1346862280810907e+43
+ time 864003600 
+ system total energy -1.9613292935364597e+35 
+ total linear momentum 2.859084418021611e+27 
+ and total angular momentum 3.134773045193394e+43
+ time 900003600 
+ system total energy -1.9608905456838817e+35 
+ total linear momentum 2.859084418045402e+27 
+ and total angular momentum 3.1348582282196697e+43
+ time 936003600 
+ system total energy -1.960457566145274e+35 
+ total linear momentum 2.859084418049525e+27 
+ and total angular momentum 3.1349447542242956e+43
+ time 972003600 
+ system total energy -1.9600283591519324e+35 
+ total linear momentum 2.8590844180620283e+27 
+ and total angular momentum 3.135034892763108e+43
+ time 1008003600 
+ system total energy -1.95959239648505e+35 
+ total linear momentum 2.8590844182240507e+27 
+ and total angular momentum 3.1351307697045734e+43
+ time 1044003600 
+ system total energy -1.9591502226766968e+35 
+ total linear momentum 2.8590844184098214e+27 
+ and total angular momentum 3.1352321686075486e+43
+ time 1080003600 
+ system total energy -1.9587043751902872e+35 
+ total linear momentum 2.859084418191825e+27 
+ and total angular momentum 3.1353366067581867e+43
+ time 1116003600 
+ system total energy -1.9582707710435257e+35 
+ total linear momentum 2.8590844181495434e+27 
+ and total angular momentum 3.1354393148940854e+43
+ time 1152003600 
+ system total energy -1.957859232939979e+35 
+ total linear momentum 2.859084418071413e+27 
+ and total angular momentum 3.1355366557110097e+43
+ time 1188003600 
+ system total energy -1.9574726202460074e+35 
+ total linear momentum 2.859084417947156e+27 
+ and total angular momentum 3.1356275472361225e+43
+ time 1224003600 
+ system total energy -1.9571040404894943e+35 
+ total linear momentum 2.8590844181332497e+27 
+ and total angular momentum 3.135713366720338e+43
+ time 1260003600 
+ system total energy -1.9567439528870585e+35 
+ total linear momentum 2.859084418148176e+27 
+ and total angular momentum 3.1357966576228897e+43
+ time 1296003600 
+ system total energy -1.9563895768256124e+35 
+ total linear momentum 2.8590844179450633e+27 
+ and total angular momentum 3.135879901235422e+43
+ time 1332003600 
+ system total energy -1.956037445664304e+35 
+ total linear momentum 2.8590844181926673e+27 
+ and total angular momentum 3.1359656838295e+43
+ time 1368003600 
+ system total energy -1.955690318363652e+35 
+ total linear momentum 2.8590844182666337e+27 
+ and total angular momentum 3.136055886440939e+43
+ time 1404003600 
+ system total energy -1.9553201146715794e+35 
+ total linear momentum 2.8590844181677155e+27 
+ and total angular momentum 3.136152271235917e+43
+ time 1440003600 
+ system total energy -1.9549419034019853e+35 
+ total linear momentum 2.859084417930836e+27 
+ and total angular momentum 3.136252771078527e+43
+ time 1476003600 
+ system total energy -1.9545671914863795e+35 
+ total linear momentum 2.8590844178921625e+27 
+ and total angular momentum 3.1363533361036317e+43
+ time 1512003600 
+ system total energy -1.9542143078087527e+35 
+ total linear momentum 2.859084417734762e+27 
+ and total angular momentum 3.1364492078356614e+43
+ time 1548003600 
+ system total energy -1.9538887017757666e+35 
+ total linear momentum 2.859084417695728e+27 
+ and total angular momentum 3.1365385842506994e+43
+ time 1584003600 
+ system total energy -1.953568286119214e+35 
+ total linear momentum 2.859084417639539e+27 
+ and total angular momentum 3.136622534092512e+43
+ time 1620003600 
+ system total energy -1.953258654601388e+35 
+ total linear momentum 2.859084417675829e+27 
+ and total angular momentum 3.136702906847296e+43
+ time 1656003600 
+ system total energy -1.9529615603705e+35 
+ total linear momentum 2.859084417541807e+27 
+ and total angular momentum 3.1367818562148895e+43
+ time 1692003600 
+ system total energy -1.952671794638914e+35 
+ total linear momentum 2.85908441764678e+27 
+ and total angular momentum 3.136862377445358e+43
+ time 1728003600 
+ system total energy -1.9523636744145264e+35 
+ total linear momentum 2.859084417709198e+27 
+ and total angular momentum 3.1369475671992946e+43
+ time 1764003600 
+ system total energy -1.9520444381531966e+35 
+ total linear momentum 2.8590844176211516e+27 
+ and total angular momentum 3.137038677227697e+43
+ time 1800003600 
+ system total energy -1.9517221460929737e+35 
+ total linear momentum 2.8590844176395376e+27 
+ and total angular momentum 3.1371347830080103e+43
+ time 1836003600 
+ system total energy -1.951393231136849e+35 
+ total linear momentum 2.8590844177112604e+27 
+ and total angular momentum 3.137233459252242e+43
+ time 1872003600 
+ system total energy -1.951067641268158e+35 
+ total linear momentum 2.859084417617732e+27 
+ and total angular momentum 3.1373301022008567e+43
+ time 1908003600 
+ system total energy -1.950764258867762e+35 
+ total linear momentum 2.8590844175557983e+27 
+ and total angular momentum 3.137421106333146e+43
+ time 1944003600 
+ system total energy -1.9504884768771284e+35 
+ total linear momentum 2.859084417462699e+27 
+ and total angular momentum 3.137505800125907e+43
+ time 1980003600 
+ system total energy -1.9502099321841056e+35 
+ total linear momentum 2.8590844174891657e+27 
+ and total angular momentum 3.1375868449186225e+43
+ time 2016003600 
+ system total energy -1.949944051554257e+35 
+ total linear momentum 2.859084417459853e+27 
+ and total angular momentum 3.137665555156287e+43
+ time 2052003600 
+ system total energy -1.949688025629305e+35 
+ total linear momentum 2.859084417371453e+27 
+ and total angular momentum 3.1377446760837426e+43
+ time 2088003600 
+ system total energy -1.94941559621827e+35 
+ total linear momentum 2.859084417436601e+27 
+ and total angular momentum 3.137827514782439e+43
+ time 2124003600 
+ system total energy -1.9491377253863585e+35 
+ total linear momentum 2.859084417386049e+27 
+ and total angular momentum 3.1379154163124693e+43
+ time 2160003600 
+ system total energy -1.9488520586238048e+35 
+ total linear momentum 2.859084417448994e+27 
+ and total angular momentum 3.138008842013789e+43
+ time 2196003600 
+ system total energy -1.9485450541461715e+35 
+ total linear momentum 2.8590844176331643e+27 
+ and total angular momentum 3.138106800357459e+43
+ time 2232003600 
+ system total energy -1.948255412776103e+35 
+ total linear momentum 2.859084417869731e+27 
+ and total angular momentum 3.1382036912737527e+43
+ time 2268003600 
+ system total energy -1.947972378955236e+35 
+ total linear momentum 2.85908441783936e+27 
+ and total angular momentum 3.1382964236481383e+43
+ time 2304003600 
+ system total energy -1.9477028093751002e+35 
+ total linear momentum 2.859084418123646e+27 
+ and total angular momentum 3.138383089524258e+43
+ time 2340003600 
+ system total energy -1.9474564921461918e+35 
+ total linear momentum 2.859084418211939e+27 
+ and total angular momentum 3.1384638910749897e+43
+ time 2376003600 
+ system total energy -1.947217301718651e+35 
+ total linear momentum 2.859084418173118e+27 
+ and total angular momentum 3.1385411871074635e+43
+ time 2412003600 
+ system total energy -1.9469848223462015e+35 
+ total linear momentum 2.859084417952329e+27 
+ and total angular momentum 3.1386175731362447e+43
+ time 2448003600 
+ system total energy -1.946743419988232e+35 
+ total linear momentum 2.8590844178223886e+27 
+ and total angular momentum 3.138695920854784e+43
+ time 2484003600 
+ system total energy -1.9464957945960718e+35 
+ total linear momentum 2.859084417728019e+27 
+ and total angular momentum 3.138778353215246e+43
+ time 2520003600 
+ system total energy -1.946239177354453e+35 
+ total linear momentum 2.859084417620426e+27 
+ and total angular momentum 3.1388663317698407e+43
+ time 2556003600 
+ system total energy -1.9459657678756004e+35 
+ total linear momentum 2.8590844177731267e+27 
+ and total angular momentum 3.138959629026544e+43
+ time 2592003600 
+ system total energy -1.9456962508532343e+35 
+ total linear momentum 2.8590844176807116e+27 
+ and total angular momentum 3.1390545847795244e+43
+ time 2628003600 
+ system total energy -1.945422828362272e+35 
+ total linear momentum 2.8590844177706016e+27 
+ and total angular momentum 3.139147822579821e+43
+ time 2664003600 
+ system total energy -1.9451805189576877e+35 
+ total linear momentum 2.8590844178019564e+27 
+ and total angular momentum 3.139234851554392e+43
+ time 2700003600 
+ system total energy -1.944940276569655e+35 
+ total linear momentum 2.859084417698398e+27 
+ and total angular momentum 3.139316744619931e+43
+ time 2736003600 
+ system total energy -1.9447196149162487e+35 
+ total linear momentum 2.859084417684011e+27 
+ and total angular momentum 3.1393939722966377e+43
+ time 2772003600 
+ system total energy -1.944504024813821e+35 
+ total linear momentum 2.8590844177782575e+27 
+ and total angular momentum 3.139469189595921e+43
+ time 2808003600 
+ system total energy -1.9442844208674883e+35 
+ total linear momentum 2.8590844177869096e+27 
+ and total angular momentum 3.139545509450349e+43
+ time 2844003600 
+ system total energy -1.9440619915483254e+35 
+ total linear momentum 2.859084417823573e+27 
+ and total angular momentum 3.1396249426748804e+43
+ time 2880003600 
+ system total energy -1.9438259848111943e+35 
+ total linear momentum 2.8590844176565295e+27 
+ and total angular momentum 3.139709894114625e+43
+ time 2916003600 
+ system total energy -1.94357888715814e+35 
+ total linear momentum 2.8590844175429456e+27 
+ and total angular momentum 3.1398007799476635e+43
+ time 2952003600 
+ system total energy -1.943318280071594e+35 
+ total linear momentum 2.859084417311331e+27 
+ and total angular momentum 3.1398959032651315e+43
+ time 2988003600 
+ system total energy -1.9430659147030505e+35 
+ total linear momentum 2.859084417117132e+27 
+ and total angular momentum 3.1399906900591485e+43
+ time 3024003600 
+ system total energy -1.942817387574006e+35 
+ total linear momentum 2.859084417137345e+27 
+ and total angular momentum 3.140081736375628e+43
+ time 3060003600 
+ system total energy -1.942595326247252e+35 
+ total linear momentum 2.859084417233931e+27 
+ and total angular momentum 3.1401662219750646e+43
+ time 3096003600 
+ system total energy -1.9423768771930265e+35 
+ total linear momentum 2.859084416949383e+27 
+ and total angular momentum 3.140245846754221e+43
+ time 3132003600 
+ system total energy -1.9421793911441743e+35 
+ total linear momentum 2.859084416898169e+27 
+ and total angular momentum 3.1403214218843215e+43
+ time 3168003600 
+ system total energy -1.941972009139885e+35 
+ total linear momentum 2.859084416816867e+27 
+ and total angular momentum 3.14039687449459e+43
+ time 3204003600 
+ system total energy -1.941772411291167e+35 
+ total linear momentum 2.859084416789113e+27 
+ and total angular momentum 3.1404736318428256e+43
+ time 3240003600 
+ system total energy -1.9415560538828918e+35 
+ total linear momentum 2.8590844167641406e+27 
+ and total angular momentum 3.140554978813459e+43
+ time 3276003600 
+ system total energy -1.9413283924954506e+35 
+ total linear momentum 2.8590844166414433e+27 
+ and total angular momentum 3.1406420832897145e+43
+ time 3312003600 
+ system total energy -1.941091174373876e+35 
+ total linear momentum 2.859084416589565e+27 
+ and total angular momentum 3.140733959025511e+43
+ time 3348003600 
+ system total energy -1.9408435560054763e+35 
+ total linear momentum 2.85908441661186e+27 
+ and total angular momentum 3.1408281755329417e+43
+ time 3384003600 
+ system total energy -1.940611987347794e+35 
+ total linear momentum 2.8590844166305527e+27 
+ and total angular momentum 3.140919183735247e+43
+ time 3420003600 
+ system total energy -1.940388039791183e+35 
+ total linear momentum 2.8590844166717734e+27 
+ and total angular momentum 3.1410048912718264e+43
+ time 3456003600 
+ system total energy -1.940184885322098e+35 
+ total linear momentum 2.85908441661179e+27 
+ and total angular momentum 3.141084282990127e+43
+ time 3492003600 
+ system total energy -1.9399906364114987e+35 
+ total linear momentum 2.859084416778546e+27 
+ and total angular momentum 3.141159255586267e+43
+ time 3528003600 
+ system total energy -1.93980310742472e+35 
+ total linear momentum 2.859084416599087e+27 
+ and total angular momentum 3.1412322601387936e+43
+ time 3564003600 
+ system total energy -1.9396129584361815e+35 
+ total linear momentum 2.859084416855064e+27 
+ and total angular momentum 3.141306027504024e+43
+ time 3600003600 
+ system total energy -1.9394188784711857e+35 
+ total linear momentum 2.85908441685424e+27 
+ and total angular momentum 3.1413831134386914e+43
+ time 3636003600 
+ system total energy -1.9392078553879174e+35 
+ total linear momentum 2.85908441689542e+27 
+ and total angular momentum 3.1414658473845145e+43
+ time 3672003600 
+ system total energy -1.9389877838864466e+35 
+ total linear momentum 2.859084416937563e+27 
+ and total angular momentum 3.1415543889537943e+43
+ time 3708003600 
+ system total energy -1.9387523837275363e+35 
+ total linear momentum 2.8590844167835827e+27 
+ and total angular momentum 3.141647189292547e+43
+ time 3744003600 
+ system total energy -1.9385240019687144e+35 
+ total linear momentum 2.859084416844743e+27 
+ and total angular momentum 3.141739613057262e+43
+ time 3780003600 
+ system total energy -1.9383076805934012e+35 
+ total linear momentum 2.859084417068208e+27 
+ and total angular momentum 3.141827857296629e+43
+ time 3816003600 
+ system total energy -1.9381028972928607e+35 
+ total linear momentum 2.8590844170952645e+27 
+ and total angular momentum 3.1419103818437866e+43
+ time 3852003600 
+ system total energy -1.9379145196908688e+35 
+ total linear momentum 2.859084417063932e+27 
+ and total angular momentum 3.141987703049302e+43
+ time 3888003600 
+ system total energy -1.937732617938442e+35 
+ total linear momentum 2.859084416928024e+27 
+ and total angular momentum 3.1420619655983616e+43
+ time 3924003600 
+ system total energy -1.9375527863261144e+35 
+ total linear momentum 2.8590844168875234e+27 
+ and total angular momentum 3.1421358599684384e+43
+ time 3960003600 
+ system total energy -1.9373694379840923e+35 
+ total linear momentum 2.8590844168220354e+27 
+ and total angular momentum 3.1422117098227015e+43
+ time 3996003600 
+ system total energy -1.9371761186084457e+35 
+ total linear momentum 2.859084416796888e+27 
+ and total angular momentum 3.1422921615794934e+43
+ time 4032003600 
+ system total energy -1.936973717954647e+35 
+ total linear momentum 2.8590844168296797e+27 
+ and total angular momentum 3.142378063282685e+43
+ time 4068003600 
+ system total energy -1.9367500140188526e+35 
+ total linear momentum 2.8590844167252437e+27 
+ and total angular momentum 3.142469545360481e+43
+ time 4104003600 
+ system total energy -1.936527046470118e+35 
+ total linear momentum 2.859084416929473e+27 
+ and total angular momentum 3.1425626337533033e+43
+ time 4140003600 
+ system total energy -1.9363087243159582e+35 
+ total linear momentum 2.859084416810366e+27 
+ and total angular momentum 3.142653226100989e+43
+ time 4176003600 
+ system total energy -1.9361057218026522e+35 
+ total linear momentum 2.8590844166307033e+27 
+ and total angular momentum 3.1427382886726803e+43
+ time 4212003600 
+ system total energy -1.935924994854028e+35 
+ total linear momentum 2.8590844166445654e+27 
+ and total angular momentum 3.1428167929753136e+43
+ time 4248003600 
+ system total energy -1.9357425821795483e+35 
+ total linear momentum 2.8590844164496995e+27 
+ and total angular momentum 3.142891532589495e+43
+ time 4284003600 
+ system total energy -1.935578556699585e+35 
+ total linear momentum 2.859084416449694e+27 
+ and total angular momentum 3.14296329053527e+43
+ time 4320003600 
+ system total energy -1.9354013427983843e+35 
+ total linear momentum 2.859084416420284e+27 
+ and total angular momentum 3.143036342513925e+43
+ time 4356003600 
+ system total energy -1.9352280807038333e+35 
+ total linear momentum 2.8590844163855666e+27 
+ and total angular momentum 3.143111786675432e+43
+ time 4392003600 
+ system total energy -1.9350399200462365e+35 
+ total linear momentum 2.85908441640598e+27 
+ and total angular momentum 3.1431925323931005e+43
+ time 4428003600 
+ system total energy -1.9348334151371165e+35 
+ total linear momentum 2.8590844163634703e+27 
+ and total angular momentum 3.143279184468904e+43
+ time 4464003600 
+ system total energy -1.934622283316815e+35 
+ total linear momentum 2.85908441636926e+27 
+ and total angular momentum 3.143369538521103e+43
+ time 4500003600 
+ system total energy -1.9344054713194417e+35 
+ total linear momentum 2.8590844162466725e+27 
+ and total angular momentum 3.1434603244769247e+43
+ time 4536003600 
+ system total energy -1.93420513522616e+35 
+ total linear momentum 2.85908441630994e+27 
+ and total angular momentum 3.143546930973408e+43
+ time 4572003600 
+ system total energy -1.934021769206197e+35 
+ total linear momentum 2.859084416112738e+27 
+ and total angular momentum 3.14362763262038e+43
+ time 4608003600 
+ system total energy -1.933843036423795e+35 
+ total linear momentum 2.8590844159986655e+27 
+ and total angular momentum 3.143703679408204e+43
+ time 4644003600 
+ system total energy -1.9336817642993028e+35 
+ total linear momentum 2.859084416209195e+27 
+ and total angular momentum 3.143775884177022e+43
+ time 4680003600 
+ system total energy -1.9335148022425994e+35 
+ total linear momentum 2.859084416230448e+27 
+ and total angular momentum 3.1438479268352817e+43
+ time 4716003600 
+ system total energy -1.933350437628884e+35 
+ total linear momentum 2.8590844163660283e+27 
+ and total angular momentum 3.14392154522682e+43
+ time 4752003600 
+ system total energy -1.9331754924319594e+35 
+ total linear momentum 2.8590844163211056e+27 
+ and total angular momentum 3.1439995553687357e+43
+ time 4788003600 
+ system total energy -1.9329826468441662e+35 
+ total linear momentum 2.8590844163426983e+27 
+ and total angular momentum 3.144083663271635e+43
+ time 4824003600 
+ system total energy -1.9327803096119724e+35 
+ total linear momentum 2.859084416429564e+27 
+ and total angular momentum 3.1441730328284215e+43
+ time 4860003600 
+ system total energy -1.93257378890185e+35 
+ total linear momentum 2.859084416565235e+27 
+ and total angular momentum 3.1442648605631127e+43
+ time 4896003600 
+ system total energy -1.932364043568728e+35 
+ total linear momentum 2.8590844165360645e+27 
+ and total angular momentum 3.1443554089220006e+43
+ time 4932003600 
+ system total energy -1.9321777200296916e+35 
+ total linear momentum 2.8590844166387176e+27 
+ and total angular momentum 3.1444402018419796e+43
+ time 4968003600 
+ system total energy -1.932001839053286e+35 
+ total linear momentum 2.8590844168381663e+27 
+ and total angular momentum 3.1445194100353836e+43
+ time 5004003600 
+ system total energy -1.9318373095084193e+35 
+ total linear momentum 2.859084416854615e+27 
+ and total angular momentum 3.1445937454111517e+43
+ time 5040003600 
+ system total energy -1.931679640097084e+35 
+ total linear momentum 2.859084416760389e+27 
+ and total angular momentum 3.1446656680727515e+43
+ time 5076003600 
+ system total energy -1.931520550986981e+35 
+ total linear momentum 2.8590844169761055e+27 
+ and total angular momentum 3.1447377274469286e+43
+ time 5112003600 
+ system total energy -1.9313566127164005e+35 
+ total linear momentum 2.8590844171683535e+27 
+ and total angular momentum 3.1448125711753273e+43
+ time 5148003600 
+ system total energy -1.9311839237906095e+35 
+ total linear momentum 2.8590844171201866e+27 
+ and total angular momentum 3.144892091293767e+43
+ time 5184003600 
+ system total energy -1.930989374867643e+35 
+ total linear momentum 2.859084416997074e+27 
+ and total angular momentum 3.144977865904052e+43
+ time 5220003600 
+ system total energy -1.930790217690526e+35 
+ total linear momentum 2.8590844171284736e+27 
+ and total angular momentum 3.145067592489901e+43
 
 
-Minimum linear momentum: 2.764266749884347e+31 
- Maximum linear momentum: 2.7642667498843616e+31 
+Minimum linear momentum: 2.859084415966655e+27 
+ Maximum linear momentum: 2.8590844184341575e+27 
 
 
 
-Minimum total Energy: -5.81845885206104e+33 
- Maximum total Energy: -5.817804672685382e+33 
+Minimum total Energy: -1.98023248435921e+35 
+ Maximum total Energy: -1.9306839409866192e+35 
 
 
 
-Minimum angular momentum: 7.53891286531302e+40 
- Maximum angular momentum: 7.538912865313055e+40 
+Minimum angular momentum: 3.1322961130396696e+43 
+ Maximum angular momentum: 3.1451144797317625e+43 
 

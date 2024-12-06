@@ -17,7 +17,7 @@ def orbits2D():
    #  ax.xaxis.set_ticks(np.arange(-35.0, 35, 10))
    #  ax.yaxis.set_ticks(np.arange(-35.0, 35, 10))
     ax.legend()
-    plt.savefig("2DorbitsV.svg")
+   # plt.savefig("2DorbitsV2.svg")
     plt.show()
 
     
@@ -31,10 +31,41 @@ def EnergyCons():
     ax.plot(timeLog, totalEnergy, label="Total Energy", lw=0.4)
 
     ax.legend()
-    plt.savefig("EnergyConsV.svg")
+   # plt.savefig("EnergyConsV2.svg")
     plt.show()
 
-    
+def EnergyCons2():
+    fig=plt.figure(figsize=(3.5,2.6),dpi=200)
+    ax=fig.add_subplot(1,1,1)
+    ax.set_xlabel(r'$t$ (s)')
+    ax.set_ylabel(r'$E$ (J)')
+
+    ax.plot(timeLog, kineticEnergy, label="Total Energy", lw=0.4)
+    ax.plot(timeLog, potentialEnergy, label="Total Energy", lw=0.4)
+    ax.legend()
+  #  plt.savefig("EnergyCons2V2.svg")
+    plt.show()
+
+def EnergyKinetic():
+    fig=plt.figure(figsize=(3.5,2.6),dpi=200)
+    ax=fig.add_subplot(1,1,1)
+    ax.set_xlabel(r'$t$ (s)')
+    ax.set_ylabel(r'$E$ (J)')
+    ax.plot(timeLog, kineticEnergy, label="Total Energy", lw=0.4)
+    ax.legend()
+  #  plt.savefig("EnergykV2.svg")
+    plt.show()
+
+def EnergyPotential():
+    fig=plt.figure(figsize=(3.5,2.6),dpi=200)
+    ax=fig.add_subplot(1,1,1)
+    ax.set_xlabel(r'$t$ (s)')
+    ax.set_ylabel(r'$E$ (J)')
+    ax.plot(timeLog, potentialEnergy, label="Total Energy", lw=0.4)
+    ax.legend()
+   # plt.savefig("EnergypV2.svg")
+    plt.show()
+
 def LinearMomCons():
     fig=plt.figure(dpi=200)
     ax=fig.add_subplot(1,1,1)
@@ -46,7 +77,7 @@ def LinearMomCons():
 
     ax.legend()
     # fig.tight_layout()
-    plt.savefig("LinMomentumV.svg")
+  #  plt.savefig("LinMomentumV2.svg")
     plt.show()
  
 
@@ -62,7 +93,7 @@ def AngMomCons():
 
     ax.legend()
     # fig.tight_layout()
-    plt.savefig("AngMomentumV.svg")
+  #  plt.savefig("AngMomentumV2.svg")
     plt.show()
     
     

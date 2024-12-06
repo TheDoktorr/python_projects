@@ -79,7 +79,7 @@ def ClassMaker(body_input):
 
     return body
 
-planets = ["Sun", "Mercury", "Venus", "Earth"]
+planets = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
 
 def update_planets(new_list):
     global planets
@@ -167,6 +167,8 @@ timeLog = []
 linearMom = [] 
 angularMom =[]
 totalEnergy = []
+kineticEnergy = []
+potentialEnergy = []
 # shorter lists to print output to txt file
 timeLogS = []
 linearMomS = [] 

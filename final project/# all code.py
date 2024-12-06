@@ -213,7 +213,8 @@ timeLog = []
 linearMom = [] 
 angularMom =[]
 totalEnergy = []
-
+kineticEnergy = []
+potentialEnergy = []
 
 
 
@@ -272,7 +273,14 @@ for i in range(iterations):
     angularMomentum = np.sum([np.float64(particle.angularMomentum()) for particle in bodies], axis=0)
     angularMom.append(np.float64(np.linalg.norm(angularMomentum)))
 
+    kinetic_energy = 0.0
+    potential_energy = 0.0
     total_energy = np.float64(0.0)
+    kinetic_energy = sum(body.kineticEnergy() for body in bodies)
+    kineticEnergy.append(kinetic_energy)
+
+    potential_energy = sum(0.5 * body.potentialEnergy(bodies) for body in bodies)
+    potentialEnergy.append(potential_energy)
     for p in bodies:
         total_energy += np.float64(p.kineticEnergy() + 0.5 * p.potentialEnergy(bodies))
     totalEnergy.append(np.float64(total_energy))
@@ -310,7 +318,44 @@ def EnergyCons():
     plt.savefig("EnergyConsV.svg")
     plt.show()
 
+
+def EnergyCons2():
+    fig=plt.figure(figsize=(3.5,2.6),dpi=200)
+    ax=fig.add_subplot(1,1,1)
+    ax.set_xlabel(r'$t$ (s)')
+    ax.set_ylabel(r'$E$ (J)')
+
+    ax.plot(timeLog, kineticEnergy, label="Total Energy", lw=0.4)
+    ax.plot(timeLog, potentialEnergy, label="Total Energy", lw=0.4)
+    ax.legend()
+    plt.savefig("EnergyConsV.svg")
+    plt.show()
+
+def EnergyKinetic():
+    fig=plt.figure(figsize=(3.5,2.6),dpi=200)
+    ax=fig.add_subplot(1,1,1)
+    ax.set_xlabel(r'$t$ (s)')
+    ax.set_ylabel(r'$E$ (J)')
+    ax.plot(timeLog, kineticEnergy, label="Total Energy", lw=0.4)
+    ax.legend()
+    plt.savefig("EnergyConsV.svg")
+    plt.show()
+
+def EnergyPotential():
+    fig=plt.figure(figsize=(3.5,2.6),dpi=200)
+    ax=fig.add_subplot(1,1,1)
+    ax.set_xlabel(r'$t$ (s)')
+    ax.set_ylabel(r'$E$ (J)')
+    ax.plot(timeLog, potentialEnergy, label="Total Energy", lw=0.4)
+    ax.legend()
+    plt.savefig("EnergyConsV.svg")
+    plt.show()
+
+
 EnergyCons()
+EnergyCons2()
+EnergyKinetic()
+EnergyPotential()
 
 LinearMomCons()
 linearMom.sort()

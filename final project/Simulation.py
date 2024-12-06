@@ -9,9 +9,9 @@ no_planets = len(bodies)
 print(planets)
 
 deltaT = 3600
-method = 2
-iterations = int(31_557_600 / deltaT)
-years = 1
+method = 1
+iterations = int(166 * 31_557_600 / deltaT)
+years = 166
 
 
 print(f"running the simulation for {no_planets} bodies, {years} years, with a time step of {deltaT} seconds. ")
@@ -33,7 +33,6 @@ for i in range(iterations):
 
     timeLog.append(time)
     
-   
     total_momentum = np.array([0.0, 0.0, 0.0])
 
     for particle in bodies:       
@@ -65,6 +64,11 @@ for i in range(iterations):
     kinetic_energy = 0.0
     potential_energy = 0.0
     total_energy = np.float64(0.0)
+    kinetic_energy = sum(body.kineticEnergy() for body in bodies)
+    kineticEnergy.append(kinetic_energy)
+
+    potential_energy = sum(0.5 * body.potentialEnergy(bodies) for body in bodies)
+    potentialEnergy.append(potential_energy)
     for p in bodies:
         total_energy += np.float64(p.kineticEnergy() + 0.5 * p.potentialEnergy(bodies))
     totalEnergy.append(np.float64(total_energy))
@@ -95,7 +99,18 @@ for i in range(iterations):
         linearMomS.append(np.linalg.norm(linear_momentum))
         angularMomS.append(np.float64(np.linalg.norm(angularMomentum)))
 
-    
+
+
+orbits2D()
+orbits3D()
+EnergyCons()
+EnergyCons2()
+EnergyKinetic()
+EnergyPotential()
+LinearMomCons()
+AngMomCons()
+
+
 print("The simulation has finished")
 with open(r'final project/output.txt', 'w') as f:
     for j in range(len(timeLogS)):
@@ -111,25 +126,13 @@ with open(r'final project/output.txt', 'w') as f:
     print(f"Minimum angular momentum: {angularMom[0]} \n Maximum angular momentum: {angularMom[-1]} \n", file = f )
 
 
-orbits2D()
-orbits3D()
-EnergyCons()
-LinearMomCons()
-AngMomCons()
+
 
 
 
 
 
 """
-with open(r"final project/output.txt", "w") as f:  
-    f.writelines(linearMom)
-with open(r"final project/output2.txt", "w") as g:
-    g.writelines(timeLog)
-
-f.close()
-g.close()
-
 
 # 1.170935903e+17
 # 7.3360039e+23
@@ -141,7 +144,7 @@ linearMom = np.array(linearMom)
 
 
 list to do:
-
+fix verlet
 kepler
 angular kinetic 
 graphs
