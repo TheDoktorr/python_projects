@@ -124,4 +124,4 @@ class Particle:
 
     def masscaller(self):
         return self.mass
-    
+

@@ -2,3 +2,8 @@
 graphs
 # intelliJ config colder
 /.idea
+#unused module exercises 
+weekly_exercises
+
+final project\test_code.py
+final project\othercode.py

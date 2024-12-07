@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from Setup import *
-plt.rcParams['axes.formatter.useoffset'] = False
+
 
 
 def orbits2D():

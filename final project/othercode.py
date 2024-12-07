@@ -309,3 +309,21 @@ verlet
         for body in bodies:
             body.velocity = body.velocity + 0.5*(estimatedbodies[i].acceleration + body.acceleration)*deltaT
             i += 1
+
+
+    """
+    kinetic_energy = sum(body.kineticEnergy() for body in bodies)
+    potential_energy = sum(0.5 * body.potentialEnergy(bodies) for body in bodies)
+    total_energy = kinetic_energy + potential_energy
+    totalEnergy.append(np.float64(total_energy))
+   
+    for k, p1 in enumerate(bodies):
+        kinetic_energy += p1.kineticEnergy()  # Kinetic energy for each particle
+        for j, p2 in enumerate(bodies):
+            if j > k:  # Only calculate potential energy once per pair
+                distance = np.linalg.norm(p1.position - p2.position)
+                potential_energy += (-p1.G * p1.mass * p2.mass) / (distance)
+
+    total_energy = kinetic_energy + potential_energy
+    totalEnergy.append(total_energy)
+    """

@@ -2,11 +2,12 @@ import numpy as np
 from astropy.coordinates import get_body_barycentric_posvel
 from astropy.constants import G
 from spiceypy import sxform, mxvg
-
-from Particle import Particle
-from constants import *
 import os
 import platform
+
+from Particle import Particle
+from Constants import *
+
 
 # we now get the positions and velocities of solar system bodies
 def coord_conv(body):
@@ -92,8 +93,11 @@ def clear_terminal():
         os.system("clear")  # Clear screen on Linux/Mac
 
 # user input system
+
+
 while True:
     # Single input for y/n
+    print("Simulatoin setup!")
     user_input = input("Would you like to use a preset system? (y / n): ").strip().lower()
     
     if user_input == "y":
@@ -155,22 +159,47 @@ while True:
     else:
         print("Invalid input! Please enter 'y' or 'n'.")
 
-clear_terminal()
-
-
 
 bodies = []
 
 for i in range(len(planets)):       # for each planet
     
     body = ClassMaker(planets[i])   # make a class associated with it
-    bodies.append(body)             # add to list
+    bodies.append(body)                 # add to list
     
 # setup body coordinate lists, as blank lists
 xpos = {particle.name: [] for particle in bodies}   
 ypos = {particle.name: [] for particle in bodies}
 zpos = {particle.name: [] for particle in bodies}
 
+def aphelion_perihelion(xpos, ypos, zpos):
+    aphelion = {}
+    perihelion = {}
+     # iterative over every name and set of positions, as an array for easier maths
+    for name in xpos.keys():
+        x = np.array(xpos[name])
+        y = np.array(ypos[name])
+        z = np.array(zpos[name])
+         # calculate 3D distances from origin
+        length = np.sqrt(x**2 + y**2 + z**2)
+        # using the max and min of each of these, we take these to be our aphelion and perihelion
+        aphelion[name] = np.max(length)
+        perihelion[name] = np.min(length)
+
+    return aphelion, perihelion
+
+def Kepler_three():
+    # keplers 3rd law, requires setup of xpos, ypos, zpos data to calculate the semi-major axis
+    aphelion, perihelion = aphelion_perihelion(xpos, ypos, zpos)
+    semi_major_axes = {name: (aphelion[name] + perihelion[name]) / 2 for name in xpos.keys()}
+    orbital_period = {}
+    for name in xpos.keys():
+        r = semi_major_axes[name]
+        orbital_period[name] = 2* np.pi * np.sqrt((r ** 3) / (constants.GM_sun.value))
+        orbital_period[name] = orbital_period[name] / (60 * 60 * 24)
+    for name, period in orbital_period.items():
+        print(f"Orbital period for {name}: {period:.2f} days")
+    return orbital_period
 
 #time and energy for graphing
 timeLog = []
@@ -184,4 +213,3 @@ timeLogS = []
 linearMomS = [] 
 angularMomS =[]
 totalEnergyS = []
-
