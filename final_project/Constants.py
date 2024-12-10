@@ -1,10 +1,8 @@
 from poliastro import constants
 from astropy.time import Time
 
-
  # Using Astropy, we import the time
 t = Time("2024-11-26 17:00:00.0", scale="tdb")
-
 
 # dictionary reference of mass constants for ClassMaker to reference
 GM_constants = {

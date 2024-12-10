@@ -19,7 +19,6 @@ class Particle:
         self.mass = np.float64(mass)
         self.G = np.float64(G)
         
-        
     def __str__(self):
         return "Particle: {0}, Mass: {1:.3e}, Position: {2}, Velocity: {3}, Acceleration: {4}".format(
         self.name, self.mass,self.position, self.velocity, self.acceleration
@@ -31,9 +30,7 @@ class Particle:
         takes self.position, velocity, acceleration as passed to it
         takes deltaT as the time step of the update
         """
-
         self.deltaT = deltaT
-        
         self.position = self.position + self.velocity * self.deltaT
         self.velocity = self.velocity  + self.acceleration * self.deltaT
 
@@ -42,7 +39,6 @@ class Particle:
         Alternative method for updating based on Euler-Cromer method 
         
         """
-
         self.velocity = self.velocity + self.acceleration * deltaT
         self.position = self.position + self.velocity * deltaT
 
@@ -52,7 +48,6 @@ class Particle:
         """
         Method for many body acceleration of bodies 
         list of bodies, e.g [satellite1, satellite2]
-
         self = i
         bodies = j
         """
@@ -78,14 +73,12 @@ class Particle:
         This smooths out changes in acceleration
         input also requires bodies to update end acceleration
         """    
-   
         i =0
         estimatedbodies = [np.zeros(3, dtype=np.float64) for j in range(len(bodies))]
         for body in bodies:
             body.position = body.position + body.velocity*deltaT + 0.5*body.acceleration*(deltaT)**2
             estimatedbodies[i] = copy.deepcopy(body)
             i += 1
-        
 
         bodiescopy = copy.deepcopy(estimatedbodies)
         i = 0
@@ -104,7 +97,6 @@ class Particle:
         Kenergy =  0.5 * self.mass * Kvelocity**2
 
         return Kenergy
-
 
     def potentialEnergy(self, bodies):
         potentialE = 0 

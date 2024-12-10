@@ -4,12 +4,11 @@ from astropy.constants import G
 from spiceypy import sxform, mxvg
 import os
 import platform
-
+import pickle
 from Particle import Particle
 from Constants import *
 
-
-# we now get the positions and velocities of solar system bodies
+    # we now get the positions and velocities of solar system bodies
 def coord_conv(body):
     # convert input into string to obtain data
     body =str(body)
@@ -62,7 +61,6 @@ def massFunc(body_input):
     else:
         raise ValueError("No mass found for that body")     # error if body is not found in the dictionary
 
-
 def ClassMaker(body_input):
     """
     This function takes the body input single value and generates the initial conditions based on the JPL library
@@ -108,7 +106,7 @@ while True:
     
         # Handle preset selection
         try:
-            preset = int(input("Enter your preset choice (1 or 2): ").strip())
+            preset = int(input("Enter your preset choice (1, 2, 3): ").strip())
             
             if preset ==1:
                 update_planets(["Sun", "Earth"])
@@ -159,7 +157,6 @@ while True:
     else:
         print("Invalid input! Please enter 'y' or 'n'.")
 
-
 bodies = []
 
 for i in range(len(planets)):       # for each planet
@@ -175,17 +172,19 @@ zpos = {particle.name: [] for particle in bodies}
 def aphelion_perihelion(xpos, ypos, zpos):
     aphelion = {}
     perihelion = {}
-     # iterative over every name and set of positions, as an array for easier maths
+        # iterative over every name and set of positions, as an array for easier maths
     for name in xpos.keys():
         x = np.array(xpos[name])
         y = np.array(ypos[name])
         z = np.array(zpos[name])
-         # calculate 3D distances from origin
+            # calculate 3D distances from origin
         length = np.sqrt(x**2 + y**2 + z**2)
-        # using the max and min of each of these, we take these to be our aphelion and perihelion
-        aphelion[name] = np.max(length)
-        perihelion[name] = np.min(length)
-
+        if length.size == 0:
+            break
+            # using the max and min of each of these, we take these to be our aphelion and perihelion
+        else:
+            aphelion[name] = np.max(length)
+            perihelion[name] = np.min(length)
     return aphelion, perihelion
 
 def Kepler_three():
@@ -197,9 +196,19 @@ def Kepler_three():
         r = semi_major_axes[name]
         orbital_period[name] = 2* np.pi * np.sqrt((r ** 3) / (constants.GM_sun.value))
         orbital_period[name] = orbital_period[name] / (60 * 60 * 24)
+    orbital_period_list = []
     for name, period in orbital_period.items():
-        print(f"Orbital period for {name}: {period:.2f} days")
-    return orbital_period
+       orbital_period_list.append((f"Orbital period for {name}: {period} days"))
+    return orbital_period_list
+
+def save_pickle(data, filename=r"final_project\simulation_data.pkl"):
+    with open(filename, "wb") as f:
+        pickle.dump(data, f)
+
+# Load from a pickle file
+def load_pickle(filename=r"final_project\simulation_data.pkl"):
+    with open(filename, "rb") as f:
+        return pickle.load(f)
 
 #time and energy for graphing
 timeLog = []
@@ -213,3 +222,4 @@ timeLogS = []
 linearMomS = [] 
 angularMomS =[]
 totalEnergyS = []
+

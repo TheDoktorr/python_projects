@@ -5,5 +5,6 @@ graphs
 #unused module exercises 
 weekly_exercises
 
-final project\test_code.py
-final project\othercode.py
+# testing files
+final_project/othercode.py
+final_project/test_code.py
