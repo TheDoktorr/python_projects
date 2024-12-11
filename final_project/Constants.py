@@ -1,10 +1,12 @@
 from poliastro import constants
 from astropy.time import Time
-
+"""
+File containing mass constants from poliastro, and time from astropy
+"""
  # Using Astropy, we import the time
 t = Time("2024-11-26 17:00:00.0", scale="tdb")
 
-# dictionary reference of mass constants for ClassMaker to reference
+# dictionary reference of mass constants for MassFunc to reference
 GM_constants = {
     "sun": constants.GM_sun,
     "mercury": constants.GM_mercury,

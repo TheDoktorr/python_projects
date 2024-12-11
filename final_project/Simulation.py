@@ -1,22 +1,30 @@
 import numpy as np
-from Setup import *
+from Setup import * # import all back-end content
 import matplotlib.pyplot as plt
+"""
+main simulation loop, graphing, cache files, printed output and Keplers validation 
+RUN THIS ONE!! 
+"""
 
+# initialise time, percentage counter (progress) 
 time = 0
 progress = 0
-no_planets = len(bodies)
+no_planets = len(bodies)    # used for user feedback
 
-def orbits2D():
+# graphs here as dependant on both simulation parameters, as well as setup params (imported)
+# here so graphs can be re-run from pkl
+
+def orbits2D(): # 2D orbit graph
     fig=plt.figure(figsize=(3.5,2.6),dpi=200)
     ax=fig.add_subplot(1,1,1)
     ax.set_xlabel(r'$x$ (au)')
     ax.set_ylabel(r'$y$ (au)')
     for name in xpos:
-        x = np.array(xpos[name]) /149597870700  # from NASA
+        x = np.array(xpos[name]) /149597870700  # from NASA, converted to AU
         y= np.array(ypos[name]) /149597870700
         ax.plot(x, y, label = name, lw=0.4)
     ax.legend()
-   # plt.savefig("2DorbitsV2.svg")
+    #plt.savefig("2DorbitsV_3600_170y.svg")     # commented out unless explicitly needed
     plt.show()
 
 def EnergyCons():
@@ -26,10 +34,10 @@ def EnergyCons():
     ax.set_ylabel(r'$E$ (J)')
     ax.plot(timeLog, totalEnergy, label="Total Energy", lw=0.4)
     ax.legend()
-   # plt.savefig("EnergyConsV2.svg")
+   # plt.savefig("EnergyConsV_3600_170y.svg")
     plt.show()
 
-def EnergyCons2():
+def EnergyCons2():  # shows  components of kinetic and potential separately
     fig=plt.figure(figsize=(3.5,2.6),dpi=200)
     ax=fig.add_subplot(1,1,1)
     ax.set_xlabel(r'$t$ (s)')
@@ -37,31 +45,30 @@ def EnergyCons2():
     ax.plot(timeLog, kineticEnergy, label="Kinetic E", lw=0.4)
     ax.plot(timeLog, potentialEnergy, label="Potential E", lw=0.4)
     ax.legend()
-  #  plt.savefig("EnergyCons2V2.svg")
+   # plt.savefig("EnergyConsV_3600_170y.svg")
     plt.show()
 
-def LinearMomCons():
+def LinearMomCons():    
     fig=plt.figure(dpi=200)
     ax=fig.add_subplot(1,1,1)
     ax.set_xlabel(r'$t$ (s)')
-    ax.set_ylabel(r'$ (kg m/s$')
-   # linearMom = np.array(linearMom)
+    ax.set_ylabel(r'$\rho$ $(kg m s^{-1})$')
     ax.plot(timeLog, linearMom, label="Linear Momentum", lw=1)
     ax.legend()
-  #  plt.savefig("LinMomentumV2.svg")
+   # plt.savefig("LinMomentumV_3600_170y.svg")
     plt.show()
 
 def AngMomCons():
     fig=plt.figure(dpi=200)
     ax=fig.add_subplot(1,1,1)
     ax.set_xlabel(r'$t$ (s)')
-    ax.set_ylabel(r'$kg m/s^2$ (J)')
+    ax.set_ylabel(r' L $(kg m^{2} s^{-1})$')
     ax.plot(timeLog, angularMom, label="Angular Momentum", lw=0.4)
     ax.legend()
-  #  plt.savefig("AngMomentumV2.svg")
+   # plt.savefig("AngMomentumV_3600_170y.svg")
     plt.show()
  
-def orbits3D():
+def orbits3D():     # purely for cool factor, not a practical graph
     fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
     for name in xpos:
         # change units to astronomical units
@@ -75,7 +82,8 @@ def orbits3D():
     ax.legend()
     plt.show()
 
-clear_terminal()
+clear_terminal() # clears post setup
+# string to print simulation settings back to user 
 print(planets)
 print(f"running the simulation for {no_planets} bodies, {years} years, with a time step of {deltaT} seconds. ")
 print(f"(This will run for {iterations} iterations)")
@@ -87,21 +95,21 @@ elif method ==3:
     print("You have chosen the Verlet Method!\n")
 
 
-rerun = input("Do you want to re-run the simulation ? (y/n):\n"
+rerun = input("Do you want to re-run the simulation ? (y/n):\n" # option to rerun or graph based on last cached data
               "(note if this is first run no data will be cached - cache is based on last run ONLY)\n").strip().lower()
-# main simulation loop
+
 if rerun == "y":
-    for i in range(iterations):
+    for i in range(iterations): # main simulation loop
 
-        timeLog.append(time)
+        timeLog.append(time)    # add time to empty list to graph
         
-        total_momentum = np.array([0.0, 0.0, 0.0])
+        total_momentum = np.array([0.0, 0.0, 0.0])  # initialise total momentum to 0 for each loop, just in case :)
 
-        for particle in bodies:       
+        for particle in bodies:                                   # grav accel updated for all bodies first
             particle.updateGravaccel(bodies)
 
-        if method == 3:
-            particle.updateVerlet(bodies, deltaT)
+        if method == 3:                                           # method update loops 
+            particle.updateVerlet(bodies, deltaT)      # verlet already takes body input, no need for loop
         for particle in bodies:
 
             if method == 1:
@@ -109,43 +117,43 @@ if rerun == "y":
             elif method == 2:
                 particle.updateEC(deltaT)
             
-            xpos[particle.name].append(particle.position[0])
+            xpos[particle.name].append(particle.position[0])        # updates xyz dictionaries to plot orbits
             ypos[particle.name].append(particle.position[1])
             zpos[particle.name].append(particle.position[2])
             
-        time += deltaT
+        time += deltaT                                                                 # incriments time step 
         
-        linear_momentum = sum(particle.linearMomentum() for particle in bodies)
-        linearMom.append(np.linalg.norm(linear_momentum))
+        linear_momentum = sum(particle.linearMomentum() for particle in bodies)     # sums vector momentums     
+        linearMom.append(np.linalg.norm(linear_momentum))                                     # appends norm of vector totals
     # 
-        angularMomentum = np.sum([np.float64(particle.angularMomentum()) for particle in bodies], axis=0)
+        angularMomentum = np.sum([np.float64(particle.angularMomentum()) for particle in bodies], axis=0)   # same procedure for angular 
         angularMom.append(np.float64(np.linalg.norm(angularMomentum)))
 
-        kinetic_energy = 0.0
-        potential_energy = 0.0
+        kinetic_energy = np.float64(0.0)           # energies intialised to 0
+        potential_energy =np.float64(0.0)
         total_energy = np.float64(0.0)
-        kinetic_energy = sum(body.kineticEnergy() for body in bodies)
+        kinetic_energy = sum(body.kineticEnergy() for body in bodies)   # sums Kinetic for each body, then appends to list 
         kineticEnergy.append(kinetic_energy)
 
-        potential_energy = sum(0.5 * body.potentialEnergy(bodies) for body in bodies)
+        potential_energy = sum(0.5 * body.potentialEnergy(bodies) for body in bodies)       # sums Kinetic for each body, then appends to list, halved to avoid double interactions, i.e. 1 on 2 AND 2 on 1
         potentialEnergy.append(potential_energy)
-        for p in bodies:
-            total_energy += np.float64(p.kineticEnergy() + 0.5 * p.potentialEnergy(bodies))
+        for p in bodies:    
+            total_energy += np.float64(p.kineticEnergy() + 0.5 * p.potentialEnergy(bodies))    # total energy is kinetic + potential
         totalEnergy.append(np.float64(total_energy))
 
-        tenpercent = (iterations) / 10 
+        tenpercent = (iterations) / 10                                                                                       # calculate 10%
         
-        if i % tenpercent < 1:
+        if i % tenpercent < 1:                                                                                                    # if roughly 10% has passed, increase counter by 10 and print %
             print(f"{progress}%")
             progress += 10
-        if i % 1000 == 0:
+        if i % 1000 == 0:                                                                                                           # take other data readings every 1000 iteration for output txt file
             timeLogS.append(time)
             totalEnergyS.append(np.float64(total_energy))
             linearMomS.append(np.linalg.norm(linear_momentum))
             angularMomS.append(np.float64(np.linalg.norm(angularMomentum)))
-    print("The simulation has finished")
-    print("Storing data please wait....")
-    data_store = {
+    print("The simulation has finished")        
+    print("Storing data please wait....")                                                                       
+    data_store = {                              # dictionary of all important graphing data defined
         "timeLog" : timeLog,
         "linearMom" : linearMom,
         "angularMom" : angularMom, 
@@ -155,16 +163,16 @@ if rerun == "y":
         "xpos" : xpos,
         "ypos" : ypos,
         "zpos" : zpos  }
-    save_pickle(data_store)
+    save_pickle(data_store)              # dumped to pkl file
     
-    print("Kepler's law orbits:\n")
+    print("Kepler's law orbits:\n")    # keplers printed to terminal for quick validation of method
     orbit_list = Kepler_three()
     for j in range(len(orbit_list)):
         print(orbit_list[j])
 
-elif rerun == "n":
+elif rerun == "n":                          # if simulation isnt run, load pkl cached data from prev run
     print("Using cached data (from last full run) if available")
-    loaded_data = load_pickle()
+    loaded_data = load_pickle()                 # var re-assinged as same names, but from file
     timeLog = loaded_data["timeLog"]
     linearMom = loaded_data["linearMom"]
     angularMom =loaded_data["angularMom"]
@@ -178,8 +186,8 @@ elif rerun == "n":
 else:
     print("Invalid input! Please enter 'y' or 'n'.")
     
-graphs = input("would you like to produce graphs relating to the simulation data? (y/n):\n").strip().lower()
-if graphs == "y":
+graphs = input("would you like to produce graphs relating to the simulation data? (y/n):\n").strip().lower()    # graphs produced on request
+if graphs == "y":   # graphs as defined top 
     orbits2D()
     orbits3D()
     EnergyCons()
@@ -192,12 +200,12 @@ else:
     print("Invalid input! Please enter 'y' or 'n'.")
 
 
-with open(r'final_project\output.txt', 'w') as f:
+with open(r'final_project\output.txt', 'w') as f:   # handles writing to text output file
     for j in range(len(timeLogS)):
-        f.write(f" time {timeLogS[j]} \n system total energy {totalEnergyS[j]} \n total linear momentum {linearMomS[j]} \n and total angular momentum {angularMomS[j]}\n \n")
+        f.write(f" time {timeLogS[j]} \n system total energy {totalEnergyS[j]} \n total linear momentum {linearMomS[j]} \n and total angular momentum {angularMomS[j]}\n \n")   # total energies, momentum and ang. momentum printed every 1000 iteration to file
     print("\n", file = f)
     print("system totals", file = f)
-    linearMom.sort()
+    linearMom.sort()    # lists sorted to take max and min values for linear, ang momentum and energy
     print(f"Minimum linear momentum: {linearMom[0]} \n Maximum linear momentum: {linearMom[-1]} \n", file = f )
     print("\n", file = f)
     totalEnergy.sort()
@@ -207,10 +215,4 @@ with open(r'final_project\output.txt', 'w') as f:
     print(f"Minimum angular momentum: {angularMom[0]} \n Maximum angular momentum: {angularMom[-1]} \n", file = f )
 
 
-"""
-
-list to do:
-tidy up
-user body input
-"""
 
