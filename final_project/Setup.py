@@ -112,7 +112,7 @@ def load_pickle(filename=r"final_project\simulation_data.pkl"):
     with open(filename, "rb") as f:
         return pickle.load(f)
 
-
+    
 # user input system, while true means it will always be run until completed
 while True: 
     # determine whether preset system to be used, saves time 
