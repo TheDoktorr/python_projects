@@ -1,4 +1,4 @@
-# N-body solar system written in Ppython.
+# N-body solar system written in Python.
 
 ## Imports:
  matplotlib     - plotting    
