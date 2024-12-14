@@ -175,7 +175,7 @@ if rerun == "y":
     #### ---------------------------- Data storage for report graphs - not used in main simulation ----------------------------   ####
     """
     # this code normalises the inputted list, used for graphing relative quantities in the report
-    with open(r'final_project\norm_energy.txt', 'w') as g:
+    with open(r'norm_energy.txt', 'w') as g:
         # print(timeLog, file = g)
         normalised_E = []
         E_min = min(linearMom)
@@ -246,7 +246,7 @@ else:
     print("Invalid input! Please enter 'y' or 'n'.")
 
 
-with open(r'final_project\output.txt', 'w') as f:   # handles writing to text output file
+with open(r'output.txt', 'w') as f:   # handles writing to text output file
     for j in range(len(timeLogS)):
         f.write(f" time {timeLogS[j]} \n system total energy {totalEnergyS[j]} \n total linear momentum {linearMomS[j]} \n and total angular momentum {angularMomS[j]}\n \n")   # total energies, momentum and ang. momentum printed every 1000 iteration to file
     print("\n", file = f)

@@ -104,11 +104,11 @@ def clear_terminal():
         os.system("clear")         # Clear screen on Linux/Mac
 
 # functions below to save and load cached simulation data from a pkl file
-def save_pickle(data, filename=r"final_project\simulation_data.pkl"):
+def save_pickle(data, filename=r"simulation_data.pkl"):
     with open(filename, "wb") as f:
         pickle.dump(data, f)
 
-def load_pickle(filename=r"final_project\simulation_data.pkl"):
+def load_pickle(filename=r"simulation_data.pkl"):
     with open(filename, "rb") as f:
         return pickle.load(f)
 
