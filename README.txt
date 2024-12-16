@@ -52,7 +52,7 @@ Known issues:
 
 How to setup:
 1) install necessary packages
-1b) if using a lower powered computer (16GB ram recommended, 8GB min) comment out the code for saving data to a .pkl -> # save_pickle(data_store) on line 172
+1b) if using a lower powered computer (16GB ram recommended, 8GB min) comment out the code for saving data to a .pkl -> # save_pickle(data_store) on line 172 in Simulation.py
 2) run Simulation.py
 3) wait for ephemeris to download if not ran before
 4) follow on screen dialogue
